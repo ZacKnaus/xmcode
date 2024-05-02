@@ -1,223 +1,442 @@
 {
-  "version": "1.0.0",
-  "settings": {
-    "axes": {
-      "axis_1": {
-        "name": "axis_1",
-        "alias": "x",
-        "motor_type": "stepper",
-        "drive_type": "leadscrew",
-        "range_of_motion": {
-          "min": 0,
-          "max": 200,
-          "enabled": true
-        },
-        "soft_limits": {
-          "min": 10,
-          "max": 190,
-          "enabled": true
-        },
-        "homing_direction": "min",
-        "homing_speed": 50,
-        "limit_switches": {
-          "min": {
-            "enabled": true,
-            "triggered": false,
-            "last_triggered": null
-          },
-          "max": {
-            "enabled": true,
-            "triggered": false,
-            "last_triggered": null
-          }
-        }
+   "version": "1.0.0",
+   "settings": {
+      "axes": {
+         "axis_1": {
+            "name": "axis_1",
+            "alias": "x",
+            "motor_type": "stepper",
+            "drive_type": "leadscrew",
+            "range_of_motion": {
+               "min": 0,
+               "max": 200,
+               "enabled": true
+            },
+            "soft_limits": {
+               "min": 10,
+               "max": 190,
+               "enabled": true
+            },
+            "homing_direction": "min",
+            "homing_speed": 50,
+            "limit_switches": {
+               "min": "x_min_limit",
+               "max": "x_max_limit"
+            },
+            "comments": "This is the X-axis of the machine."
+         },
+         "axis_2": {
+            "name": "axis_2",
+            "alias": "y",
+            "motor_type": "stepper",
+            "drive_type": "leadscrew",
+            "range_of_motion": {
+               "min": 0,
+               "max": 200,
+               "enabled": true
+            },
+            "soft_limits": {
+               "min": 10,
+               "max": 190,
+               "enabled": true
+            },
+            "homing_direction": "min",
+            "homing_speed": 50,
+            "limit_switches": {
+               "min": "y_min_limit",
+               "max": "y_max_limit"
+            },
+            "comments": "This is the Y-axis of the machine."
+         },
+         "axis_3": {
+            "name": "axis_3",
+            "alias": "z",
+            "motor_type": "stepper",
+            "drive_type": "leadscrew",
+            "range_of_motion": {
+               "min": 0,
+               "max": 200,
+               "enabled": true
+            },
+            "soft_limits": {
+               "min": 10,
+               "max": 190,
+               "enabled": true
+            },
+            "homing_direction": "max",
+            "homing_speed": 25,
+            "limit_switches": {
+               "min": "z_min_limit",
+               "max": "z_max_limit"
+            },
+            "comments": "This is the Z-axis of the machine."
+         }
       },
-      "axis_2": {
-        "name": "axis_2",
-        "alias": "y",
-        "motor_type": "stepper",
-        "drive_type": "leadscrew",
-        "range_of_motion": {
-          "min": 0,
-          "max": 200,
-          "enabled": true
-        },
-        "soft_limits": {
-          "min": 10,
-          "max": 190,
-          "enabled": true
-        },
-        "homing_direction": "min",
-        "homing_speed": 50,
-        "limit_switches": {
-          "min": {
-            "enabled": true,
-            "triggered": false,
-            "last_triggered": null
-          },
-          "max": {
-            "enabled": true,
-            "triggered": false,
-            "last_triggered": null
-          }
-        }
+      "tooling": {
+         "mill": {
+            "max_rpm": 10000,
+            "hp": 1.25,
+            "tool_offsets": {
+               "tool_1": {
+                  "x": 0.1,
+                  "y": 0.2,
+                  "z": 0.3
+               },
+               "tool_2": {
+                  "x": 0.2,
+                  "y": 0.1,
+                  "z": 0.4
+               }
+            },
+            "wear_compensation": {
+               "x": 0.05,
+               "y": 0.03,
+               "z": 0.02
+            },
+            "commands": {
+               "on": {
+                  "function": "mill_on()",
+                  "comments": "Turns on the mill."
+               },
+               "off": {
+                  "function": "mill_off()",
+                  "comments": "Turns off the mill."
+               },
+               "adjust_speed": {
+                  "function": "mill_adjust_speed(rpm)",
+                  "parameters": {
+                     "rpm": {
+                        "type": "number",
+                        "min": 0,
+                        "max": 10000
+                     }
+                  },
+                  "async": false,
+                  "comments": "Adjusts the speed of the mill."
+               }
+            }
+         },
+         "laser": {
+            "max_power": 50,
+            "wavelength": 405,
+            "tool_offsets": {
+               "laser_1": {
+                  "x": 0.1,
+                  "y": 0.2,
+                  "z": 0
+               }
+            },
+            "commands": {
+               "on": {
+                  "function": "laser_on()",
+                  "comments": "Turns on the laser."
+               },
+               "off": {
+                  "function": "laser_off()",
+                  "comments": "Turns off the laser."
+               },
+               "set_power": {
+                  "function": "laser_set_power(power)",
+                  "parameters": {
+                     "power": {
+                        "type": "number",
+                        "min": 0,
+                        "max": 100
+                     }
+                  },
+                  "async": false,
+                  "comments": "Sets the power of the laser."
+               }
+            }
+         },
+         "3d_printer": {
+            "max_temp": 300,
+            "nozzle_diameter": {
+               "min": 0.2,
+               "max": 1
+            },
+            "filament_diameter": 1.75,
+            "bed_leveling": {
+               "enabled": true,
+               "grid_size": {
+                  "x": 3,
+                  "y": 3
+               },
+               "last_leveled": null,
+               "command": {
+                  "function": "3d_printer_bed_leveling()"
+               }
+            },
+            "commands": {
+               "extrude": {
+                  "function": "3d_printer_extrude(length)",
+                  "parameters": {
+                     "length": {
+                        "type": "number",
+                        "min": 0,
+                        "max": 100
+                     }
+                  },
+                  "async": false,
+                  "comments": "Extrudes filament."
+               },
+               "retract": {
+                  "function": "3d_printer_retract(length)",
+                  "parameters": {
+                     "length": {
+                        "type": "number",
+                        "min": 0,
+                        "max": 100
+                     }
+                  },
+                  "async": false,
+                  "comments": "Retracts filament."
+               },
+               "set_temp": {
+                  "function": "3d_printer_set_temp(temp)",
+                  "parameters": {
+                     "temp": {
+                        "type": "number",
+                        "min": 180,
+                        "max": 300
+                     }
+                  },
+                  "async": true,
+                  "comments": "Sets the temperature of the nozzle."
+               }
+            }
+         }
       },
-      "axis_3": {
-        "name": "axis_3",
-        "alias": "z",
-        "motor_type": "stepper",
-        "drive_type": "leadscrew",
-        "range_of_motion": {
-          "min": 0,
-          "max": 200,
-          "enabled": true
-        },
-        "soft_limits": {
-          "min": 10,
-          "max": 190,
-          "enabled": true
-        },
-        "homing_direction": "max",
-        "homing_speed": 25,
-        "limit_switches": {
-          "min": {
-            "enabled": true,
+      "sensors": {
+         "sensor_1": {
+            "alias": "x_min_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D3",
+            "axis": "x",
+            "direction": "min",
             "triggered": false,
-            "last_triggered": null
-          },
-          "max": {
-            "enabled": true,
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_x()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_2": {
+            "alias": "x_max_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D4",
+            "axis": "x",
+            "direction": "max",
             "triggered": false,
-            "last_triggered": null
-          }
-        }
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_x()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_3": {
+            "alias": "y_min_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D5",
+            "axis": "y",
+            "direction": "min",
+            "triggered": false,
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_y()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_4": {
+            "alias": "y_max_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D6",
+            "axis": "y",
+            "direction": "max",
+            "triggered": false,
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_y()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_5": {
+            "alias": "z_min_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D7",
+            "axis": "z",
+            "direction": "min",
+            "triggered": false,
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_z()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_6": {
+            "alias": "z_max_limit",
+            "type": "limit_switch",
+            "interface": "digital",
+            "pin": "D8",
+            "axis": "z",
+            "direction": "max",
+            "triggered": false,
+            "last_triggered": null,
+            "trigger_actions": [
+               {
+                  "condition": 1,
+                  "function": "stop_axis_z()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_7": {
+            "alias": "bed_temperature",
+            "type": "temperature",
+            "interface": "analog",
+            "pin": "A0",
+            "response_frequency": 1000,
+            "interpreter_function": "interpret_temperature",
+            "trigger_actions": [
+               {
+                  "condition": "low",
+                  "function": "set_bed_temperature(60)",
+                  "async": true
+               },
+               {
+                  "condition": "high",
+                  "function": "set_bed_temperature(0)",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_8": {
+            "alias": "rgb_sensor",
+            "type": "color_sensor",
+            "interface": "i2c",
+            "address": "0x52",
+            "response_frequency": 500,
+            "interpreter_function": "interpret_rgb_values",
+            "trigger_actions": [
+               {
+                  "condition": "red",
+                  "function": "run_red_function()",
+                  "async": true
+               },
+               {
+                  "condition": "green",
+                  "function": "run_green_function()",
+                  "async": true
+               },
+               {
+                  "condition": "blue",
+                  "function": "run_blue_function()",
+                  "async": true
+               }
+            ]
+         }
+      },
+      "custom_commands": {
+         "home_all_axes": {
+            "function": "home_all_axes()",
+            "async": false,
+            "comments": "Homes all axes."
+         },
+         "set_feedrate": {
+            "function": "set_feedrate(feedrate)",
+            "parameters": {
+               "feedrate": {
+                  "type": "number",
+                  "min": 10,
+                  "max": 1000
+               }
+            },
+            "async": false,
+            "comments": "Sets the feedrate."
+         }
+      },
+      "power_on_setup": {
+         "enabled": true,
+         "homing_sequence": [
+            "axis_1",
+            "axis_2",
+            "axis_3"
+         ]
+      },
+      "user": {
+         "timezone": "UTC"
       }
-    },
-    "tooling": {
-      "mill": {
-        "max_rpm": 10000,
-        "hp": 1.25,
-        "commands": {
-          "on": {
-            "function": "mill_on()"
-          },
-          "off": {
-            "function": "mill_off()"
-          },
-          "adjust_speed": {
-            "function": "mill_adjust_speed(rpm)",
-            "parameters": {
-              "rpm": {
-                "type": "number",
-                "min": 0,
-                "max": 10000
-              }
-            },
-            "async": false
-          }
-        }
+   },
+   "attributes": {
+      "machine": {
+         "accuracy": {
+            "linear": 0.01,
+            "angular": 0.1
+         },
+         "repeatability": {
+            "linear": 0.005,
+            "angular": 0.05
+         }
       },
-      "laser": {
-        "max_power": 50,
-        "wavelength": 405,
-        "commands": {
-          "on": {
-            "function": "laser_on()"
-          },
-          "off": {
-            "function": "laser_off()"
-          },
-          "set_power": {
-            "function": "laser_set_power(power)",
-            "parameters": {
-              "power": {
-                "type": "number",
-                "min": 0,
-                "max": 100
-              }
-            },
-            "async": false
-          }
-        }
+      "axes": {
+         "axis_1": {
+            "max_speed": 5000,
+            "acceleration": 500,
+            "step_per_mm": 100,
+            "backlash_compensation": 0.02
+         },
+         "axis_2": {
+            "max_speed": 5000,
+            "acceleration": 500,
+            "step_per_mm": 100,
+            "backlash_compensation": 0.02
+         },
+         "axis_3": {
+            "max_speed": 2000,
+            "acceleration": 200,
+            "step_per_mm": 400,
+            "backlash_compensation": 0.01
+         }
       },
-      "3d_printer": {
-        "max_temp": 300,
-        "nozzle_diameter": {
-          "min": 0.2,
-          "max": 1.0
-        },
-        "filament_diameter": 1.75,
-        "bed_leveling": {
-          "enabled": true,
-          "grid_size": {
-            "x": 3,
-            "y": 3
-          },
-          "last_leveled": null,
-          "command": {
-            "function": "3d_printer_bed_leveling()"
-          }
-        },
-        "commands": {
-          "extrude": {
-            "function": "3d_printer_extrude(length)",
-            "parameters": {
-              "length": {
-                "type": "number",
-                "min": 0,
-                "max": 100
-              }
-            },
-            "async": false
-          },
-          "retract": {
-            "function": "3d_printer_retract(length)",
-            "parameters": {
-              "length": {
-                "type": "number",
-                "min": 0,
-                "max": 100
-              }
-            },
-            "async": false
-          },
-          "set_temp": {
-            "function": "3d_printer_set_temp(temp)",
-            "parameters": {
-              "temp": {
-                "type": "number",
-                "min": 180,
-                "max": 300
-              }
-            },
-            "async": true
-          }
-        }
+      "tooling": {
+         "mill": {
+            "spindle_power": 1.5,
+            "spindle_runout": 0.005,
+            "tool_holder_type": "ER20",
+            "tool_change_time": 5
+         },
+         "laser": {
+            "laser_power": 10,
+            "focus_diameter": 0.1,
+            "pulse_frequency": 20000,
+            "cooling_system": "air"
+         },
+         "3d_printer": {
+            "max_print_speed": 150,
+            "max_travel_speed": 200,
+            "max_acceleration": 1000,
+            "nozzle_size": 0.4
+         }
       }
-    },
-    "custom_commands": {
-      "home_all_axes": {
-        "function": "home_all_axes()",
-        "async": false
-      },
-      "set_feedrate": {
-        "function": "set_feedrate(feedrate)",
-        "parameters": {
-          "feedrate": {
-            "type": "number",
-            "min": 10,
-            "max": 1000
-          }
-        },
-        "async": false
-      }
-    },
-    "power_on_setup": {
-      "enabled": true,
-      "homing_sequence": ["axis_1", "axis_2", "axis_3"]
-    },
-    "user": {
-      "timezone": "UTC"
-    }
-  }
+   }
 }
