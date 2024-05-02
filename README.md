@@ -88,6 +88,48 @@ The XMCode JSON file contains the actual commands and parameters for controlling
 
 The XMCode JSON file is designed to be human-readable and easy to generate programmatically. It supports parameter validation and error handling based on the constraints defined in the settings JSON file.
 
+## Machine Control System
+
+The XMCode format is designed to be used in conjunction with a machine control system that can interpret and execute the commands defined in the XMCode JSON files. The machine control system plays a crucial role in ensuring the safe and efficient operation of the machine. Here are some key aspects of the machine control system:
+
+1. **Security**: The machine control system should implement appropriate security measures to protect against unauthorized access and malicious commands.
+  - Authentication: Implement user authentication mechanisms to ensure that only authorized users can access and control the machine.
+  - Command Validation: Validate incoming commands against the constraints and limits defined in the settings JSON file to prevent potentially harmful or invalid commands from being executed.
+  - Data Encryption: Use secure communication protocols and encrypt sensitive data to protect against unauthorized interception or tampering.
+
+2. **Custom Python Functions**: XMCode allows defining custom Python functions for executing specific commands or performing complex operations.
+  - Function Definition: Custom Python functions can be defined in a separate Python file and referenced in the settings JSON file.
+  - Parameter Passing: The machine control system should handle the passing of parameters from the XMCode JSON file to the corresponding Python functions.
+  - Error Handling: Implement proper error handling mechanisms in the Python functions to gracefully handle exceptions and provide meaningful error messages.
+
+3. **Real-time Feedback and Positional Updates**: The machine control system should provide real-time feedback and positional updates to ensure accurate tracking and monitoring of the machine's state.
+  - Positional Feedback: After each command execution, the machine control system should respond with the current position of the machine's axes. This allows the client to track the machine's movement and verify that the commands are being executed correctly.
+  - Status Updates: Implement mechanisms to send real-time status updates from the machine to the control system, including information about the current tooling state, any error conditions, and other relevant machine parameters.
+  - Logging: Maintain detailed logs of machine activities, commands executed, and any errors or warnings encountered during operation.
+  - Monitoring Dashboard: Develop a monitoring dashboard that displays real-time information about the machine's status, current job progress, and any relevant metrics.
+
+4. **HTTP/API Integration**: The machine control system should provide native support for HTTP/API calls to enable seamless integration with external systems and remote control capabilities.
+  - API Endpoints: Implement API endpoints that allow sending XMCode commands and receiving machine responses over HTTP.
+  - Authentication and Security: Ensure that the API endpoints are secured using appropriate authentication mechanisms, such as API keys or token-based authentication, to prevent unauthorized access.
+  - API Documentation: Provide comprehensive API documentation that describes the available endpoints, request/response formats, and any authentication requirements.
+
+5. **Asynchronous Command Execution**: The machine control system should support asynchronous command execution to allow non-blocking operations and maintain a smooth motion loop.
+  - Async Flag: Utilize the async flag in the XMCode JSON files to indicate which commands can be executed asynchronously without interrupting the main motion loop.
+  - Background Processing: Implement a mechanism to process asynchronous commands in the background while the main motion loop continues executing.
+  - Status Updates: Provide real-time status updates for asynchronous commands, including information about their execution progress and completion status.
+
+6. **Modularity and Extensibility**: The machine control system should be designed with modularity and extensibility in mind.
+  - Plugin Architecture: Implement a plugin architecture that allows adding new functionality or support for additional tooling without modifying the core system.
+  - Configuration Management: Provide a configuration management system that allows easily updating and versioning the settings JSON file and other configuration files.
+  - API Integration: Expose a well-defined API that allows integrating the machine control system with other software tools and systems.
+
+7. **Safety Features**: Incorporate safety features into the machine control system to ensure safe operation and minimize the risk of accidents.
+  - Emergency Stop: Implement an emergency stop mechanism that can immediately halt the machine's operation in case of any safety concerns or emergencies.
+  - Limit Checks: Perform real-time limit checks to ensure that the machine operates within the defined soft and hard limits specified in the settings JSON file.
+  - Failsafe Mechanisms: Implement failsafe mechanisms that automatically stop the machine or revert to a safe state in case of critical errors or loss of communication.
+
+By addressing these aspects, the machine control system can provide a secure, flexible, and reliable environment for executing XMCode commands and controlling the machine effectively.
+
 ## Usage
 
 To use XMCode in your machine control project:
