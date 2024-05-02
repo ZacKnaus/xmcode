@@ -106,4 +106,4 @@ Contributions to the XMCode project are welcome! If you have any ideas, suggesti
 
 ## License
 
-The XMCode project is released under the [MIT License](LICENSE).
+The XMCode project is released under the [GNU General Public License v3.0](LICENSE).
