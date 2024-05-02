@@ -1,16 +1,16 @@
 # XMCode: Extended Machine Code
 
-XMCode (Extended Machine Code) is a next-generation machine control format designed to provide a flexible and extensible way to configure and control various types of machines, including CNC machines, 3D printers, laser cutters, and robotic arms. It aims to address the limitations of traditional gcode and offer a more structured and readable format for machine control.
+XMCode (Extended Machine Code) is a next-generation machine control format designed to provide a flexible and extensible way to configure and control various types of machines, including CNC machines, 3D printers, laser cutters, and robotic arms. It aims to address the limitations of traditional G-code and offer a more structured and readable format for machine control.
 
 ## Project Overview
 
 The XMCode project consists of two main components:
 
-1. **Settings JSON**: A comprehensive machine configuration file that defines the machine's capabilities, limitations, and settings. It includes information about axes, tooling, custom commands, and various machine-specific parameters.
+1. **Settings JSON**: A comprehensive machine configuration file that defines the machine's capabilities, limitations, and settings. It includes information about axes, tooling, sensors, custom commands, and various machine-specific parameters.
 
 2. **XMCode JSON**: A machine control file that contains the actual commands and parameters for controlling the machine. It uses a human-readable format and supports advanced features like parameter validation and asynchronous command execution.
 
-The goal of XMCode is to provide a standardized and extensible format that can be easily adapted to different machines and use cases. It aims to simplify the process of configuring and controlling machines, while also enabling more advanced functionality and flexibility compared to traditional gcode.
+The goal of XMCode is to provide a standardized and extensible format that can be easily adapted to different machines and use cases. It aims to simplify the process of configuring and controlling machines, while also enabling more advanced functionality and flexibility compared to traditional G-code.
 
 ## Settings JSON
 
@@ -29,10 +29,13 @@ The settings JSON file is responsible for defining the machine's configuration a
    - Mill:
      - Maximum RPM: Defines the maximum rotational speed of the mill.
      - Horsepower: Specifies the power rating of the mill.
+     - Tool offsets: Defines the offset values for each tool in the mill.
+     - Wear compensation: Specifies the wear compensation values for the mill.
      - Commands: Defines the available commands for the mill, such as on, off, and adjust speed, along with parameter validation and async flag.
    - Laser:
      - Maximum power: Specifies the maximum power output of the laser.
      - Wavelength: Indicates the wavelength of the laser.
+     - Tool offsets: Defines the offset values for the laser.
      - Commands: Defines the available commands for the laser, such as on, off, and set power, along with parameter validation and async flag.
    - 3D Printer:
      - Maximum temperature: Specifies the maximum temperature the 3D printer can reach.
@@ -45,20 +48,40 @@ The settings JSON file is responsible for defining the machine's configuration a
        - Command: Defines the custom command for performing bed leveling.
      - Commands: Defines the available commands for the 3D printer, such as extrude, retract, and set temperature, along with parameter validation and async flag.
 
-3. **Custom Commands**: Allows defining custom commands that are not specific to any tooling.
+3. **Sensors**: Defines the available sensors and their configurations.
+   - Limit switches:
+     - Alias: Provides a user-friendly name for the limit switch.
+     - Type: Specifies the type of sensor (e.g., limit switch).
+     - Interface: Indicates the communication interface used by the sensor (e.g., digital, analog).
+     - Pin: Specifies the pin to which the sensor is connected.
+     - Axis: Indicates the axis associated with the limit switch.
+     - Direction: Specifies the direction of the limit switch (e.g., min, max).
+     - Triggered: Indicates whether the limit switch is currently triggered.
+     - Last triggered: Stores the timestamp of the last trigger event.
+     - Trigger actions: Defines the actions to be performed when the limit switch is triggered, including the condition, function to execute, and async flag.
+   - Other sensors:
+     - Alias: Provides a user-friendly name for the sensor.
+     - Type: Specifies the type of sensor (e.g., temperature, color).
+     - Interface: Indicates the communication interface used by the sensor (e.g., analog, I2C).
+     - Pin or address: Specifies the pin or address to which the sensor is connected.
+     - Response frequency: Defines how frequently the sensor provides updates or can be read.
+     - Interpreter function: Specifies the function used to interpret the sensor's raw values into meaningful data.
+     - Trigger actions: Defines the actions to be performed based on the sensor's interpreted data, including the condition, function to execute, and async flag.
+
+4. **Custom Commands**: Allows defining custom commands that are not specific to any tooling.
    - Command name: Specifies the name of the custom command.
    - Function: Defines the function to be executed when the command is called.
    - Parameters: Specifies the parameters required for the command, including their types and ranges.
    - Async flag: Indicates whether the command should be executed asynchronously.
 
-4. **Power-on Setup**: Defines the initial setup routine when the machine is powered on.
+5. **Power-on Setup**: Defines the initial setup routine when the machine is powered on.
    - Enable/disable flag: Allows enabling or disabling the power-on setup routine.
    - Homing sequence: Specifies the order in which axes should be homed during the power-on setup.
 
-5. **User Settings**: Includes user-specific settings.
+6. **User Settings**: Includes user-specific settings.
    - Timezone: Specifies the timezone settings for the user.
 
-The settings JSON file serves as a configuration template for the machine and can be easily modified to accommodate different machine types and configurations.
+The settings JSON file serves as a configuration template for the machine and can be easily modified to accommodate different machine types and configurations. It provides a comprehensive and structured way to define the machine's capabilities and settings.
 
 ## XMCode JSON
 
@@ -87,6 +110,60 @@ The XMCode JSON file contains the actual commands and parameters for controlling
 4. **Async Flag**: Indicates whether the command should be executed asynchronously or not.
 
 The XMCode JSON file is designed to be human-readable and easy to generate programmatically. It supports parameter validation and error handling based on the constraints defined in the settings JSON file.
+
+## Attributes
+
+The attributes section in the settings JSON file provides additional information about the machine's physical characteristics and capabilities. It includes the following main sections:
+
+1. **Machine**: Defines the overall attributes of the machine.
+   - Accuracy: Specifies the linear and angular accuracy of the machine.
+   - Repeatability: Indicates the linear and angular repeatability of the machine.
+
+2. **Axes**: Defines the attributes specific to each axis.
+   - Maximum speed: Specifies the maximum speed achievable by the axis.
+   - Acceleration: Indicates the maximum acceleration of the axis.
+   - Steps per mm: Defines the number of steps required for the axis to move one millimeter.
+   - Backlash compensation: Specifies the backlash compensation value for the axis.
+
+3. **Tooling**: Defines the attributes specific to each tooling.
+   - Mill:
+     - Spindle power: Specifies the power rating of the mill's spindle.
+     - Spindle runout: Indicates the maximum runout of the mill's spindle.
+     - Tool holder type: Specifies the type of tool holder used by the mill.
+     - Tool change time: Defines the time required for a tool change operation.
+   - Laser:
+     - Laser power: Specifies the maximum power output of the laser.
+     - Focus diameter: Indicates the diameter of the laser's focused spot.
+     - Pulse frequency: Defines the maximum pulse frequency of the laser.
+     - Cooling system: Specifies the type of cooling system used by the laser.
+   - 3D Printer:
+     - Maximum print speed: Indicates the maximum printing speed of the 3D printer.
+     - Maximum travel speed: Specifies the maximum non-printing movement speed.
+     - Maximum acceleration: Defines the maximum acceleration of the print head.
+     - Nozzle size: Specifies the diameter of the printer's nozzle.
+
+The attributes section provides a way to capture the physical characteristics and capabilities of the machine and its components. These attributes can be used for reference, validation, or optimization purposes.
+
+## Interpreter Functions
+
+Interpreter functions are used to process and interpret the raw data received from sensors. They are defined in the settings JSON file and are associated with specific sensors. Interpreter functions take the raw sensor data as input and return meaningful values or labels based on the defined logic.
+
+For example, an interpreter function for a color sensor might take the raw RGB values as input and return a color label such as "red," "green," or "blue" based on predefined thresholds. Similarly, an interpreter function for a temperature sensor might classify the temperature as "low," "normal," or "high" based on specified ranges.
+
+Interpreter functions provide a way to abstract the low-level sensor data and convert it into more usable and meaningful information. They allow for customization and flexibility in interpreting sensor data based on the specific requirements of the machine and its application.
+
+## Trigger Actions
+
+Trigger actions are defined in the settings JSON file and are associated with sensors. They specify the actions to be performed when certain conditions are met based on the sensor's interpreted data.
+
+Each trigger action consists of the following properties:
+- Condition: Specifies the condition that must be satisfied to trigger the action. It can be a specific value or a range of values returned by the interpreter function.
+- Function: Defines the function to be executed when the condition is met. This can be a custom function defined in the controller's code.
+- Async flag: Indicates whether the function should be executed asynchronously or not.
+
+Trigger actions allow for automated responses and behavior based on sensor input. For example, a trigger action for a limit switch might stop the associated axis when the switch is triggered. Similarly, a trigger action for a temperature sensor might adjust the bed temperature when it falls below or exceeds certain thresholds.
+
+By defining trigger actions in the settings JSON file, the machine can be configured to perform specific actions based on sensor data without the need for explicit programming. This promotes modularity, reusability, and ease of configuration.
 
 ## Machine Control System
 
