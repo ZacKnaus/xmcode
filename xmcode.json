@@ -1,0 +1,21 @@
+{
+  "axes": {
+    "x": {
+      "L": 283.12,
+      "A": 3,
+      "V": 23
+    },
+    "y": {
+      "L": 120.5,
+      "A": 1.5,
+      "V": 15
+    }
+  },
+  "tooling": {
+    "laser": {
+      "command": "set_power",
+      "power": 80
+    }
+  },
+  "async": false
+}
