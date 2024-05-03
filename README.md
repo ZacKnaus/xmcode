@@ -198,6 +198,41 @@ The XMCode format is designed to be used in conjunction with a machine control s
 
 By addressing these aspects, the machine control system can provide a secure, flexible, and reliable environment for executing XMCode commands and controlling the machine effectively.
 
+## Secure XMCode
+
+Secure XMCode is a security feature implemented in the XMCode format to ensure the integrity and authenticity of the XMCode commands. It prevents unauthorized modification or tampering of the XMCode instructions, providing an additional layer of security to the machine control system.
+
+### How it works
+
+1. When generating XMCode, the CAD/CAM program computes a hash value for each command/line using a secure hashing algorithm (e.g., SHA-256) and a secret salt value.
+2. The computed hash is included in each line of XMCode, along with the command and its parameters.
+3. The secret salt value is securely stored and shared between the CAD/CAM program and the controller, using a secure communication channel or a pre-shared secret key.
+4. When the controller receives the XMCode, it extracts the hash from each command/line.
+5. The controller recomputes the hash using the same hashing algorithm and the secret salt value, based on the received command and parameters.
+6. If the recomputed hash matches the provided hash, the command is considered valid and can be executed.
+7. If the hashes don't match, the command is rejected, and appropriate error handling is performed.
+
+### Benefits
+
+- Ensures the integrity of XMCode commands, preventing unauthorized modification or tampering.
+- Detects any changes made to the XMCode instructions, whether intentional or accidental.
+- Provides an additional layer of security, complementing other security measures such as authentication and encryption.
+- Enhances the overall security and reliability of the machine control system.
+
+### Implementation
+
+To enable Secure XMCode, the following steps are taken:
+
+1. The `settings.json` file includes a `security` object with a `secure_xmcode` boolean flag, indicating whether Secure XMCode is enabled or not.
+2. The secret salt value is securely stored and shared between the CAD/CAM program and the controller, using a secure mechanism such as environment variables or secure configuration files.
+3. The CAD/CAM program computes the hash for each command using the secure salt and includes it in the generated XMCode.
+4. The controller, upon receiving the XMCode, recomputes the hash using the same algorithm and salt, and compares it with the provided hash.
+5. If the hashes match, the command is executed; otherwise, an error is raised, and appropriate error handling is performed.
+
+It is crucial to handle the secret salt value securely and ensure that it is not exposed or compromised. The salt should be stored and transmitted securely, using encryption and secure communication channels.
+
+By implementing Secure XMCode, the machine control system gains an additional layer of security, ensuring that only authorized and unmodified XMCode commands are executed, thereby protecting the system from unauthorized access and manipulation.
+
 ## Usage
 
 To use XMCode in your machine control project:
