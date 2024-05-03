@@ -49,24 +49,15 @@ The settings JSON file is responsible for defining the machine's configuration a
      - Commands: Defines the available commands for the 3D printer, such as extrude, retract, and set temperature, along with parameter validation and async flag.
 
 3. **Sensors**: Defines the available sensors and their configurations.
-   - Limit switches:
-     - Alias: Provides a user-friendly name for the limit switch.
-     - Type: Specifies the type of sensor (e.g., limit switch).
-     - Interface: Indicates the communication interface used by the sensor (e.g., digital, analog).
-     - Pin: Specifies the pin to which the sensor is connected.
-     - Axis: Indicates the axis associated with the limit switch.
-     - Direction: Specifies the direction of the limit switch (e.g., min, max).
-     - Triggered: Indicates whether the limit switch is currently triggered.
-     - Last triggered: Stores the timestamp of the last trigger event.
-     - Trigger actions: Defines the actions to be performed when the limit switch is triggered, including the condition, function to execute, and async flag.
-   - Other sensors:
-     - Alias: Provides a user-friendly name for the sensor.
-     - Type: Specifies the type of sensor (e.g., temperature, color).
-     - Interface: Indicates the communication interface used by the sensor (e.g., analog, I2C).
-     - Pin or address: Specifies the pin or address to which the sensor is connected.
-     - Response frequency: Defines how frequently the sensor provides updates or can be read.
-     - Interpreter function: Specifies the function used to interpret the sensor's raw values into meaningful data.
-     - Trigger actions: Defines the actions to be performed based on the sensor's interpreted data, including the condition, function to execute, and async flag.
+  - Alias: Provides a user-friendly name for the limit switch.
+  - Type: Specifies the type of sensor (e.g., limit switch).
+  - Interface: Indicates the communication interface used by the sensor (e.g., digital, analog).
+  - Pin or address: Specifies the pin or address to which the sensor is connected.
+  - Response frequency: Defines how frequently the sensor provides updates or can be read.
+  - Last content: Shows the last data provided by the sensor.
+  - Last triggered: Stores the timestamp of the last trigger event.
+  - Interpreter function: Specifies the function used to interpret the sensor's raw values into meaningful data.
+  - Trigger actions: Defines the actions to be performed when the limit switch is triggered, including the condition, function to execute, and async flag.
 
 4. **Custom Commands**: Allows defining custom commands that are not specific to any tooling.
    - Command name: Specifies the name of the custom command.
