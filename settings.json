@@ -7,6 +7,7 @@
             "alias": "x",
             "motor_type": "stepper",
             "drive_type": "leadscrew",
+            "gearbox": "gearbox_1",
             "range_of_motion": {
                "min": 0,
                "max": 200,
@@ -30,6 +31,7 @@
             "alias": "y",
             "motor_type": "stepper",
             "drive_type": "leadscrew",
+            "gearbox": "gearbox_2",
             "range_of_motion": {
                "min": 0,
                "max": 200,
@@ -53,6 +55,7 @@
             "alias": "z",
             "motor_type": "stepper",
             "drive_type": "leadscrew",
+            "gearbox": "gearbox_3",
             "range_of_motion": {
                "min": 0,
                "max": 200,
@@ -213,10 +216,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D3",
-            "axis": "x",
-            "direction": "min",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -230,10 +233,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D4",
-            "axis": "x",
-            "direction": "max",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -247,10 +250,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D5",
-            "axis": "y",
-            "direction": "min",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -264,10 +267,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D6",
-            "axis": "y",
-            "direction": "max",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -281,10 +284,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D7",
-            "axis": "z",
-            "direction": "min",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -298,10 +301,10 @@
             "type": "limit_switch",
             "interface": "digital",
             "pin": "D8",
-            "axis": "z",
-            "direction": "max",
-            "triggered": false,
+            "response_frequency": 1000,
+            "last_content": 0,
             "last_triggered": null,
+            "interpreter_function": null,
             "trigger_actions": [
                {
                   "condition": 1,
@@ -316,6 +319,8 @@
             "interface": "analog",
             "pin": "A0",
             "response_frequency": 1000,
+            "last_content": 25.5,
+            "last_triggered": null,
             "interpreter_function": "interpret_temperature",
             "trigger_actions": [
                {
@@ -336,6 +341,12 @@
             "interface": "i2c",
             "address": "0x52",
             "response_frequency": 500,
+            "last_content": [
+               255,
+               0,
+               0
+            ],
+            "last_triggered": null,
             "interpreter_function": "interpret_rgb_values",
             "trigger_actions": [
                {
@@ -351,6 +362,123 @@
                {
                   "condition": "blue",
                   "function": "run_blue_function()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_9": {
+            "alias": "torque_sensor_1",
+            "type": "torque_sensor",
+            "interface": "analog",
+            "pin": "A1",
+            "response_frequency": 1000,
+            "last_content": 0.5,
+            "last_triggered": null,
+            "interpreter_function": "interpret_torque",
+            "trigger_actions": [
+               {
+                  "condition": "high",
+                  "function": "reduce_feedrate()",
+                  "async": true
+               },
+               {
+                  "condition": "low",
+                  "function": "increase_feedrate()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_10": {
+            "alias": "current_sensor_1",
+            "type": "current_sensor",
+            "interface": "analog",
+            "pin": "A2",
+            "response_frequency": 1000,
+            "last_content": 2.5,
+            "last_triggered": null,
+            "interpreter_function": "interpret_current",
+            "trigger_actions": [
+               {
+                  "condition": "high",
+                  "function": "reduce_power()",
+                  "async": true
+               },
+               {
+                  "condition": "low",
+                  "function": "increase_power()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_11": {
+            "alias": "encoder_1",
+            "type": "encoder",
+            "interface": "digital",
+            "pin": "D9",
+            "response_frequency": 1000,
+            "last_content": 1024,
+            "last_triggered": null,
+            "interpreter_function": "interpret_encoder",
+            "trigger_actions": [
+               {
+                  "condition": "stall",
+                  "function": "stop_motor()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_12": {
+            "alias": "load_cell_1",
+            "type": "load_cell",
+            "interface": "analog",
+            "pin": "A3",
+            "response_frequency": 500,
+            "last_content": 10.2,
+            "last_triggered": null,
+            "interpreter_function": "interpret_load_cell",
+            "trigger_actions": [
+               {
+                  "condition": "high",
+                  "function": "pause_operation()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_13": {
+            "alias": "strain_gauge_1",
+            "type": "strain_gauge",
+            "interface": "analog",
+            "pin": "A4",
+            "response_frequency": 1000,
+            "last_content": 0.001,
+            "last_triggered": null,
+            "interpreter_function": "interpret_strain_gauge",
+            "trigger_actions": [
+               {
+                  "condition": "high",
+                  "function": "adjust_tension()",
+                  "async": true
+               }
+            ]
+         },
+         "sensor_14": {
+            "alias": "back_emf_sensor_1",
+            "type": "back_emf_sensor",
+            "interface": "analog",
+            "pin": "A5",
+            "response_frequency": 1000,
+            "last_content": 5.2,
+            "last_triggered": null,
+            "interpreter_function": "interpret_back_emf",
+            "trigger_actions": [
+               {
+                  "condition": "low",
+                  "function": "increase_current()",
+                  "async": true
+               },
+               {
+                  "condition": "high",
+                  "function": "decrease_current()",
                   "async": true
                }
             ]
@@ -436,6 +564,26 @@
             "max_travel_speed": 200,
             "max_acceleration": 1000,
             "nozzle_size": 0.4
+         }
+      },
+      "gearboxes": {
+         "gearbox_1": {
+            "type": "planetary",
+            "ratio": 5,
+            "max_torque": 10,
+            "efficiency": 0.9
+         },
+         "gearbox_2": {
+            "type": "spur",
+            "ratio": 3,
+            "max_torque": 15,
+            "efficiency": 0.85
+         },
+         "gearbox_3": {
+            "type": "harmonic",
+            "ratio": 10,
+            "max_torque": 5,
+            "efficiency": 0.95
          }
       }
    }
