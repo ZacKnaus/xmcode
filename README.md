@@ -229,9 +229,7 @@ To enable Secure XMCode, the following steps are taken:
 4. The controller, upon receiving the XMCode, recomputes the hash using the same algorithm and salt, and compares it with the provided hash.
 5. If the hashes match, the command is executed; otherwise, an error is raised, and appropriate error handling is performed.
 
-It is crucial to handle the secret salt value securely and ensure that it is not exposed or compromised. The salt should be stored and transmitted securely, using encryption and secure communication channels.
-
-By implementing Secure XMCode, the machine control system gains an additional layer of security, ensuring that only authorized and unmodified XMCode commands are executed, thereby protecting the system from unauthorized access and manipulation.
+By implementing Secure XMCode, the machine control system gains an additional layer of security, ensuring that only authorized and unmodified XMCode commands are executed, thereby protecting the system from unauthorized  manipulation.
 
 ## Usage
 
