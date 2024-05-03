@@ -712,7 +712,8 @@
          }
       },
       "security": {
-         "secure_xmcode": true
+         "secure_xmcode": true,
+         "hashing_algorithm": "sha-256"
       },
       "user": {
          "timezone": "UTC"
