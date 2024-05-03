@@ -711,6 +711,9 @@
             }
          }
       },
+      "security": {
+         "secure_xmcode": true
+      },
       "user": {
          "timezone": "UTC"
       }
