@@ -255,7 +255,7 @@ The `security` section defines the security settings for XMCode. It includes the
 
 - `xmcode_security`: The security settings for XMCode.
  - `mode`: The security mode, which can be set to either "secure" or "encrypted".
- - `algorithm`: The encryption algorithm used when the mode is set to "encrypted" (e.g., "aes-256").
+ - `algorithm`: The encryption algorithm used when the mode is set to "encrypted" (e.g., "aes-256") or the hashing algorithm used when the mode is set to "secure" (e.g., "sha-256").
 
 ### 10. Synchronization
 
@@ -274,7 +274,7 @@ The `user` section includes user-specific settings, such as the timezone.
 
 ## Attributes
 
-The `attributes` section in the `settings.json` file provides additional information about the machine's physical characteristics and capabilities. It includes sub-sections for:
+The `attributes` section in the `settings.json` file provides additional information about the machine's physical characteristics and capabilities. The things that belong in `attributes` are generally non-configurable. It includes sub-sections for:
 
 - `machine`: Overall attributes of the machine.
  - `accuracy`: The accuracy of the machine.
