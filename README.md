@@ -94,7 +94,7 @@ The `disallowed_coordinates` section defines a list of coordinate ranges that ar
 
 ### 3. Tooling
 
-The `tooling` section specifies the available tools and their associated settings. It includes sub-sections for different types of tools, such as:
+The `tooling` section specifies the available tools and their associated settings. Each of these sections contains their own independent schemas. They includes sub-sections for different types of tools, such as:
 
 - `spindle`: Settings for the spindle, which is a rotating tool used for cutting or drilling.
   - `max_rpm`: The maximum rotational speed of the spindle in revolutions per minute (RPM).
