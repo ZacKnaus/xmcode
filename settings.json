@@ -111,6 +111,7 @@
             }
          }
       },
+      "disallowed_coordinates": [],
       "tooling": {
          "spindle": {
             "max_rpm": 10000,
@@ -647,6 +648,48 @@
             ]
          }
       },
+      "motor_control_boards": {
+         "board_1": {
+            "type": "stepper_driver",
+            "model": "TMC2209",
+            "interface": "uart",
+            "address": "0x00",
+            "max_current": 2.8,
+            "microstep_resolution": 256,
+            "step_angle": 1.8,
+            "protocol": "marlin",
+            "axes": [
+               "axis_1"
+            ]
+         },
+         "board_2": {
+            "type": "servo_driver",
+            "model": "L298N",
+            "interface": "pwm",
+            "address": "0x01",
+            "max_current": 2,
+            "protocol": "grbl",
+            "axes": [
+               "axis_2",
+               "axis_3"
+            ]
+         },
+         "board_3": {
+            "type": "multi_driver",
+            "model": "custom_board",
+            "interface": "spi",
+            "address": "0x02",
+            "max_current": 3.5,
+            "microstep_resolution": 128,
+            "step_angle": 0.9,
+            "protocol": "klipper",
+            "axes": [
+               "axis_4",
+               "axis_5",
+               "axis_6"
+            ]
+         }
+      },
       "custom_commands": {
          "home_all_axes": {
             "function": "home_all_axes()",
@@ -712,8 +755,17 @@
          }
       },
       "security": {
-         "secure_xmcode": true,
-         "hashing_algorithm": "sha-256"
+         "xmcode_security": {
+            "mode": "encrypted",
+            "algorithm": "aes-256"
+         }
+      },
+      "synchronization": {
+         "time_synchronization": {
+            "enabled": true,
+            "start_time": "00:00:00.000",
+            "time_format": "HH:mm:ss.SSS"
+         }
       },
       "user": {
          "timezone": "UTC"
