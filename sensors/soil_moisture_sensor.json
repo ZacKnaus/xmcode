@@ -1,0 +1,13 @@
+{
+  "soil_moisture_sensor": {
+    "type": "soil_moisture_sensor",
+    "interface": "analog",
+    "pin": "A8",
+    "moisture_range": {
+      "min": 0,
+      "max": 100
+    },
+    "last_moisture_reading": 60,
+    "units": "%"
+  }
+}
