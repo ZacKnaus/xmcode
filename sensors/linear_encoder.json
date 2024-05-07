@@ -1,0 +1,13 @@
+{
+  "linear_encoder": {
+    "type": "linear_encoder",
+    "interface": "quadrature",
+    "pin_a": "D9",
+    "pin_b": "D10",
+    "pin_index": "D11",
+    "resolution": 1000,
+    "last_position": 500,
+    "last_direction": "forward",
+    "units": "mm"
+  }
+}
