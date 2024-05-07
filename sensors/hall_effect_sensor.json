@@ -1,0 +1,10 @@
+{
+  "hall_effect_sensor": {
+    "type": "hall_effect_sensor",
+    "interface": "digital",
+    "pin": "D4",
+    "threshold": 100,
+    "last_state": true,
+    "last_state_change_time": "2023-06-08T11:45:00Z"
+  }
+}
