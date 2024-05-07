@@ -1,4 +1,5 @@
 {
+  "alias": "thermal_camera_1",
   "thermal_camera": {
     "type": "camera",
     "sensor_type": "thermal",
@@ -13,7 +14,21 @@
       "max": 120
     },
     "accuracy": 0.1,
-    "last_thermal_image_data": "base64_encoded_thermal_image",
+    "last_content": "base64_encoded_thermal_image",
+    "last_triggered": null,
+    "interpreter_function": "interpret_thermal_image",
+    "trigger_actions": [
+      {
+        "condition": "hot_spot_detected",
+        "function": "thermal_hot_spot_detected()",
+        "async": true
+      },
+      {
+        "condition": "cold_spot_detected",
+        "function": "thermal_cold_spot_detected()",
+        "async": true
+      }
+    ],
     "units": "°C"
   }
 }
