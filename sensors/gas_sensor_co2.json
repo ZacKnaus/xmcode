@@ -1,0 +1,15 @@
+{
+  "gas_sensor_co2": {
+    "type": "gas_sensor",
+    "gas_type": "CO2",
+    "interface": "uart",
+    "baud_rate": 9600,
+    "concentration_range": {
+      "min": 0,
+      "max": 10000
+    },
+    "accuracy": 10,
+    "last_concentration_reading": 500,
+    "units": "ppm"
+  }
+}
