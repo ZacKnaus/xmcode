@@ -1,0 +1,14 @@
+{
+  "gps_receiver": {
+    "type": "gps_receiver",
+    "interface": "uart",
+    "baud_rate": 9600,
+    "supported_protocols": ["NMEA", "RTCM"],
+    "last_position": {
+      "latitude": 37.7749,
+      "longitude": -122.4194,
+      "altitude": 100.5,
+      "timestamp": "2023-06-08T18:00:00Z"
+    }
+  }
+}
