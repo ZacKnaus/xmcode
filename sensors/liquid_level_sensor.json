@@ -1,0 +1,14 @@
+{
+  "liquid_level_sensor": {
+    "type": "liquid_level_sensor",
+    "interface": "analog",
+    "pin": "A7",
+    "level_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "accuracy": 0.5,
+    "last_level_reading": 800,
+    "units": "mL"
+  }
+}
