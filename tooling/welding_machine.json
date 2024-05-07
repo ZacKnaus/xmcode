@@ -1,0 +1,63 @@
+{
+  "welding_machine": {
+    "type": "welding_machine",
+    "process": "mig",
+    "max_current": 300,
+    "voltage_range": {
+      "min": 10,
+      "max": 30
+    },
+    "wire_feed_speed_range": {
+      "min": 1,
+      "max": 20
+    },
+    "commands": {
+      "start": {
+        "function": "welding_machine_start()",
+        "async": true,
+        "comments": "Starts the welding process."
+      },
+      "stop": {
+        "function": "welding_machine_stop()",
+        "async": true,
+        "comments": "Stops the welding process."
+      },
+      "set_current": {
+        "function": "welding_machine_set_current(current)",
+        "parameters": {
+          "current": {
+            "type": "number",
+            "min": 0,
+            "max": 300
+          }
+        },
+        "async": false,
+        "comments": "Sets the welding current."
+      },
+      "set_voltage": {
+        "function": "welding_machine_set_voltage(voltage)",
+        "parameters": {
+          "voltage": {
+            "type": "number",
+            "min": 10,
+            "max": 30
+          }
+        },
+        "async": false,
+        "comments": "Sets the welding voltage."
+      },
+      "set_wire_feed_speed": {
+        "function": "welding_machine_set_wire_feed_speed(speed)",
+        "parameters": {
+          "speed": {
+            "type": "number",
+            "min": 1,
+            "max": 20
+          }
+        },
+        "async": false,
+        "comments": "Sets the wire feed speed."
+      }
+    }
+  }
+}
