@@ -1,0 +1,33 @@
+{
+  "press": {
+    "type": "press",
+    "max_force": 10000,
+    "max_stroke": 100,
+    "commands": {
+      "move_to": {
+        "function": "press_move_to(position)",
+        "parameters": {
+          "position": {
+            "type": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "async": true,
+        "comments": "Moves the press to the specified position."
+      },
+      "apply_force": {
+        "function": "press_apply_force(force)",
+        "parameters": {
+          "force": {
+            "type": "number",
+            "min": 0,
+            "max": 10000
+          }
+        },
+        "async": true,
+        "comments": "Applies the specified force with the press."
+      }
+    }
+  }
+}
