@@ -1,13 +1,33 @@
 {
-  "back_emf_sensor": {
-    "type": "back_emf_sensor",
-    "interface": "analog",
-    "pin": "A14",
-    "voltage_range": {
-      "min": -24,
-      "max": 24
-    },
-    "last_voltage_reading": 12.6,
-    "units": "V"
-  }
+ "alias": "back_emf_sensor_1",
+ "back_emf_sensor": {
+   "type": "back_emf_sensor",
+   "interface": "analog",
+   "pin": "A14",
+   "voltage_range": {
+     "min": -24,
+     "max": 24
+   },
+   "last_content": 12.6,
+   "last_triggered": null,
+   "interpreter_function": "interpret_back_emf",
+   "trigger_actions": [
+     {
+       "condition": "low",
+       "function": "low_back_emf()",
+       "async": true
+     },
+     {
+       "condition": "mid",
+       "function": "mid_back_emf()",
+       "async": true
+     },
+     {
+       "condition": "high",
+       "function": "high_back_emf()",
+       "async": true
+     }
+   ],
+   "units": "V"
+ }
 }
