@@ -1,4 +1,5 @@
 {
+  "alias": "ultrasonic_distance_sensor_1",
   "ultrasonic_distance_sensor": {
     "type": "ultrasonic_distance_sensor",
     "interface": "gpio",
@@ -9,7 +10,26 @@
       "max": 500
     },
     "accuracy": 0.1,
-    "last_distance_reading": 150.5,
+    "last_content": 150.5,
+    "last_triggered": null,
+    "interpreter_function": "interpret_ultrasonic_distance",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_ultrasonic_distance()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_ultrasonic_distance()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_ultrasonic_distance()",
+        "async": true
+      }
+    ],
     "units": "cm"
   }
 }
