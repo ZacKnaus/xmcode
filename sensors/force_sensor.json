@@ -1,4 +1,5 @@
 {
+  "alias": "force_sensor_1",
   "force_sensor": {
     "type": "force_sensor",
     "interface": "analog",
@@ -8,7 +9,26 @@
       "max": 1000
     },
     "accuracy": 0.1,
-    "last_force_reading": 250.5,
+    "last_content": 250.5,
+    "last_triggered": null,
+    "interpreter_function": "interpret_force",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_force()",
+        "async": true
+      },
+      {
+        "condition": "mid",
+        "function": "mid_force()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_force()",
+        "async": true
+      }
+    ],
     "units": "N"
   }
 }
