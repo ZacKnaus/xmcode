@@ -1,4 +1,5 @@
 {
+  "alias": "camera_vision_sensor_1",
   "camera_vision_sensor": {
     "type": "camera",
     "sensor_type": "vision",
@@ -9,6 +10,20 @@
     },
     "frame_rate": 30,
     "pixel_format": "RGB",
-    "last_image_data": "base64_encoded_image"
+    "last_content": "base64_encoded_image",
+    "last_triggered": null,
+    "interpreter_function": "interpret_vision",
+    "trigger_actions": [
+      {
+        "condition": "object_detected",
+        "function": "object_detected()",
+        "async": true
+      },
+      {
+        "condition": "no_object_detected",
+        "function": "no_object_detected()",
+        "async": true
+      }
+    ]
   }
 }
