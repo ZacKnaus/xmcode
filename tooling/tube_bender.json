@@ -1,0 +1,51 @@
+{
+  "tube_bender": {
+    "type": "tube_bender",
+    "max_tube_diameter": 50,
+    "max_bending_radius": 100,
+    "max_bending_angle": 180,
+    "commands": {
+      "set_tube_diameter": {
+        "function": "tube_bender_set_tube_diameter(diameter)",
+        "parameters": {
+          "diameter": {
+            "type": "number",
+            "min": 0,
+            "max": 50
+          }
+        },
+        "async": false,
+        "comments": "Sets the tube diameter."
+      },
+      "set_bending_radius": {
+        "function": "tube_bender_set_bending_radius(radius)",
+        "parameters": {
+          "radius": {
+            "type": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "async": false,
+        "comments": "Sets the bending radius."
+      },
+      "set_bending_angle": {
+        "function": "tube_bender_set_bending_angle(angle)",
+        "parameters": {
+          "angle": {
+            "type": "number",
+            "min": 0,
+            "max": 180
+          }
+        },
+        "async": false,
+        "comments": "Sets the bending angle."
+      },
+      "perform_bend": {
+        "function": "tube_bender_perform_bend()",
+        "async": true,
+        "comments": "Performs the tube bending operation."
+      }
+    }
+  }
+}
