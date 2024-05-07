@@ -1,10 +1,24 @@
 {
+  "alias": "hall_effect_sensor_1",
   "hall_effect_sensor": {
     "type": "hall_effect_sensor",
     "interface": "digital",
     "pin": "D4",
     "threshold": 100,
-    "last_state": true,
-    "last_state_change_time": "2023-06-08T11:45:00Z"
+    "last_content": true,
+    "last_triggered": "2023-06-08T11:45:00Z",
+    "interpreter_function": "interpret_hall_effect",
+    "trigger_actions": [
+      {
+        "condition": "detected",
+        "function": "hall_effect_detected()",
+        "async": true
+      },
+      {
+        "condition": "not_detected",
+        "function": "hall_effect_not_detected()",
+        "async": true
+      }
+    ]
   }
 }
