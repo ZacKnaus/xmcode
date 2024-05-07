@@ -1,14 +1,29 @@
 {
+  "alias": "gps_receiver_1",
   "gps_receiver": {
     "type": "gps_receiver",
     "interface": "uart",
     "baud_rate": 9600,
     "supported_protocols": ["NMEA", "RTCM"],
-    "last_position": {
+    "last_content": {
       "latitude": 37.7749,
       "longitude": -122.4194,
       "altitude": 100.5,
       "timestamp": "2023-06-08T18:00:00Z"
-    }
+    },
+    "last_triggered": null,
+    "interpreter_function": "interpret_gps",
+    "trigger_actions": [
+      {
+        "condition": "position_update",
+        "function": "gps_position_update()",
+        "async": true
+      },
+      {
+        "condition": "no_fix",
+        "function": "gps_no_fix()",
+        "async": true
+      }
+    ]
   }
 }
