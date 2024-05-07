@@ -1,0 +1,10 @@
+{
+  "limit_switch": {
+    "type": "limit_switch",
+    "interface": "digital",
+    "pin": "D14",
+    "normally_open": true,
+    "last_state": false,
+    "last_state_change_time": "2023-06-08T18:30:00Z"
+  }
+}
