@@ -1,4 +1,5 @@
 {
+  "alias": "laser_distance_sensor_1",
   "laser_distance_sensor": {
     "type": "laser_distance_sensor",
     "interface": "uart",
@@ -8,7 +9,26 @@
       "max": 10000
     },
     "accuracy": 0.1,
-    "last_distance_reading": 2500.8,
+    "last_content": 2500.8,
+    "last_triggered": null,
+    "interpreter_function": "interpret_laser_distance",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_laser_distance()",
+        "async": true
+      },
+      {
+        "condition": "mid",
+        "function": "mid_laser_distance()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_laser_distance()",
+        "async": true
+      }
+    ],
     "units": "mm"
   }
 }
