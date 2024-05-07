@@ -1,0 +1,25 @@
+{
+  "drag_knife": {
+    "type": "knife",
+    "blade_diameter": 1,
+    "max_cutting_depth": 10,
+    "blade_offset": {
+      "x": 0.1,
+      "y": 0.2
+    },
+    "commands": {
+      "set_depth": {
+        "function": "drag_knife_set_depth(depth)",
+        "parameters": {
+          "depth": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Sets the cutting depth of the drag knife."
+      }
+    }
+  }
+}
