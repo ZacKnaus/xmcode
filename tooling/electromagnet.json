@@ -1,0 +1,60 @@
+{
+  "electromagnet": {
+    "max_current": 5,
+    "max_voltage": 24,
+    "coil_resistance": 10,
+    "coil_inductance": 0.1,
+    "core_material": "iron",
+    "core_dimensions": {
+      "length": 50,
+      "diameter": 20
+    },
+    "commands": {
+      "set_current": {
+        "function": "electromagnet_set_current(current)",
+        "parameters": {
+          "current": {
+            "type": "number",
+            "min": 0,
+            "max": 5
+          }
+        },
+        "async": false,
+        "comments": "Sets the current flowing through the electromagnet."
+      },
+      "set_voltage": {
+        "function": "electromagnet_set_voltage(voltage)",
+        "parameters": {
+          "voltage": {
+            "type": "number",
+            "min": 0,
+            "max": 24
+          }
+        },
+        "async": false,
+        "comments": "Sets the voltage applied to the electromagnet."
+      },
+      "energize": {
+        "function": "electromagnet_energize()",
+        "async": true,
+        "comments": "Energizes the electromagnet."
+      },
+      "de_energize": {
+        "function": "electromagnet_de_energize()",
+        "async": true,
+        "comments": "De-energizes the electromagnet."
+      },
+      "set_polarity": {
+        "function": "electromagnet_set_polarity(polarity)",
+        "parameters": {
+          "polarity": {
+            "type": "string",
+            "enum": ["north", "south"]
+          }
+        },
+        "async": false,
+        "comments": "Sets the polarity of the electromagnet."
+      }
+    }
+  }
+}
