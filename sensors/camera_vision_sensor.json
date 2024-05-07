@@ -1,0 +1,14 @@
+{
+  "camera_vision_sensor": {
+    "type": "camera",
+    "sensor_type": "vision",
+    "interface": "usb",
+    "resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "frame_rate": 30,
+    "pixel_format": "RGB",
+    "last_image_data": "base64_encoded_image"
+  }
+}
