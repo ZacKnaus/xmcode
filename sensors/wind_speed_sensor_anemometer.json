@@ -1,0 +1,15 @@
+{
+ "wind_speed_sensor_anemometer": {
+   "type": "wind_speed_sensor",
+   "sensor_type": "anemometer",
+   "interface": "analog",
+   "pin": "A9",
+   "speed_range": {
+     "min": 0,
+     "max": 100
+   },
+   "accuracy": 0.1,
+   "last_speed_reading": 15.5,
+   "units": "m/s"
+ }
+}
