@@ -1,11 +1,26 @@
 {
+  "alias": "encoder_1",
   "encoder": {
     "type": "encoder",
     "interface": "quadrature",
     "pin_a": "D15",
     "pin_b": "D16",
     "resolution": 1024,
-    "last_position": 2048,
+    "last_content": 2048,
+    "last_triggered": null,
+    "interpreter_function": "interpret_encoder",
+    "trigger_actions": [
+      {
+        "condition": "forward",
+        "function": "encoder_forward()",
+        "async": true
+      },
+      {
+        "condition": "reverse",
+        "function": "encoder_reverse()",
+        "async": true
+      }
+    ],
     "last_direction": "forward"
   }
 }
