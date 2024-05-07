@@ -1,0 +1,11 @@
+{
+  "rotary_encoder": {
+    "type": "rotary_encoder",
+    "interface": "gpio",
+    "pin_a": "D7",
+    "pin_b": "D8",
+    "resolution": 100,
+    "last_position": 1500,
+    "last_direction": "clockwise"
+  }
+}
