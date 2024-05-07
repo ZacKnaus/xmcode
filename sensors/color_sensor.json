@@ -1,0 +1,13 @@
+{
+  "color_sensor": {
+    "type": "color_sensor",
+    "interface": "i2c",
+    "address": "0x29",
+    "color_space": "RGB",
+    "last_color_reading": {
+      "red": 255,
+      "green": 128,
+      "blue": 64
+    }
+  }
+}
