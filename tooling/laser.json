@@ -1,0 +1,39 @@
+{
+  "laser": {
+    "max_power": 50,
+    "wavelength": 405,
+    "focal_length": 10,
+    "beam_diameter": 0.1,
+    "pulse_frequency": 20000,
+    "cooling_system": "air",
+    "tool_offsets": {
+      "laser_1": {
+        "x": 0.1,
+        "y": 0.2,
+        "z": 0
+      }
+    },
+    "commands": {
+      "on": {
+        "function": "laser_on()",
+        "comments": "Turns on the laser."
+      },
+      "off": {
+        "function": "laser_off()",
+        "comments": "Turns off the laser."
+      },
+      "set_power": {
+        "function": "laser_set_power(power)",
+        "parameters": {
+          "power": {
+            "type": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "async": false,
+        "comments": "Sets the power of the laser."
+      }
+    }
+  }
+}
