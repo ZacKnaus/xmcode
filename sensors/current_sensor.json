@@ -1,0 +1,14 @@
+{
+  "current_sensor": {
+    "type": "current_sensor",
+    "interface": "analog",
+    "pin": "A11",
+    "current_range": {
+      "min": -20,
+      "max": 20
+    },
+    "accuracy": 0.01,
+    "last_current_reading": 1.5,
+    "units": "A"
+  }
+}
