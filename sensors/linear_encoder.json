@@ -1,4 +1,5 @@
 {
+  "alias": "linear_encoder_1",
   "linear_encoder": {
     "type": "linear_encoder",
     "interface": "quadrature",
@@ -6,7 +7,21 @@
     "pin_b": "D10",
     "pin_index": "D11",
     "resolution": 1000,
-    "last_position": 500,
+    "last_content": 500,
+    "last_triggered": null,
+    "interpreter_function": "interpret_linear_encoder",
+    "trigger_actions": [
+      {
+        "condition": "forward",
+        "function": "linear_encoder_forward()",
+        "async": true
+      },
+      {
+        "condition": "reverse",
+        "function": "linear_encoder_reverse()",
+        "async": true
+      }
+    ],
     "last_direction": "forward",
     "units": "mm"
   }
