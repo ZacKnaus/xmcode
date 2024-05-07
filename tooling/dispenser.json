@@ -1,0 +1,36 @@
+{
+  "dispenser": {
+    "type": "dispenser",
+    "material": "glue",
+    "viscosity_range": {
+      "min": 1000,
+      "max": 10000
+    },
+    "commands": {
+      "dispense": {
+        "function": "dispenser_dispense(amount)",
+        "parameters": {
+          "amount": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Dispenses the specified amount of material."
+      },
+      "set_pressure": {
+        "function": "dispenser_set_pressure(pressure)",
+        "parameters": {
+          "pressure": {
+            "type": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "async": false,
+        "comments": "Sets the dispensing pressure."
+      }
+    }
+  }
+}
