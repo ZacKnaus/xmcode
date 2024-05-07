@@ -1,0 +1,32 @@
+{
+  "plasma_cutter": {
+    "type": "plasma_cutter",
+    "max_current": 200,
+    "max_thickness": 30,
+    "torch_voltage": 100,
+    "commands": {
+      "on": {
+        "function": "plasma_cutter_on()",
+        "async": true,
+        "comments": "Turns on the plasma cutter."
+      },
+      "off": {
+        "function": "plasma_cutter_off()",
+        "async": true,
+        "comments": "Turns off the plasma cutter."
+      },
+      "set_current": {
+        "function": "plasma_cutter_set_current(current)",
+        "parameters": {
+          "current": {
+            "type": "number",
+            "min": 0,
+            "max": 200
+          }
+        },
+        "async": false,
+        "comments": "Sets the cutting current."
+      }
+    }
+  }
+}
