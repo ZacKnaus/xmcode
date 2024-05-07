@@ -1,0 +1,14 @@
+{
+  "ph_sensor": {
+    "type": "ph_sensor",
+    "interface": "i2c",
+    "address": "0x63",
+    "ph_range": {
+      "min": 0,
+      "max": 14
+    },
+    "accuracy": 0.01,
+    "last_ph_reading": 7.2,
+    "temperature_compensation": true
+  }
+}
