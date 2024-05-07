@@ -1,11 +1,26 @@
 {
+  "alias": "rotary_encoder_1",
   "rotary_encoder": {
     "type": "rotary_encoder",
     "interface": "gpio",
     "pin_a": "D7",
     "pin_b": "D8",
     "resolution": 100,
-    "last_position": 1500,
+    "last_content": 1500,
+    "last_triggered": null,
+    "interpreter_function": "interpret_rotary_encoder",
+    "trigger_actions": [
+      {
+        "condition": "clockwise",
+        "function": "rotary_encoder_clockwise()",
+        "async": true
+      },
+      {
+        "condition": "counterclockwise",
+        "function": "rotary_encoder_counterclockwise()",
+        "async": true
+      }
+    ],
     "last_direction": "clockwise"
   }
 }
