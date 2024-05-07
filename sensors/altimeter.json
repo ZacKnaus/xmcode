@@ -1,14 +1,34 @@
 {
-  "altimeter": {
-    "type": "altimeter",
-    "interface": "i2c",
-    "address": "0x60",
-    "altitude_range": {
-      "min": -1000,
-      "max": 10000
-    },
-    "accuracy": 0.1,
-    "last_altitude_reading": 500.2,
-    "units": "m"
-  }
+   "alias": "altimeter_1",
+   "altimeter": {
+      "type": "altimeter",
+      "interface": "i2c",
+      "address": "0x60",
+      "altitude_range": {
+         "min": -1000,
+         "max": 10000
+      },
+      "accuracy": 0.1,
+      "last_content": 500.2,
+      "last_triggered": null,
+      "interpreter_function": "interpret_altimeter",
+      "trigger_actions": [
+         {
+            "condition": "low",
+            "function": "low_altimeter()",
+            "async": true
+         },
+         {
+            "condition": "mid",
+            "function": "mid_altimeter()",
+            "async": true
+         },
+         {
+            "condition": "high",
+            "function": "high_altimeter()",
+            "async": true
+         }
+      ],
+      "units": "m"
+   }
 }
