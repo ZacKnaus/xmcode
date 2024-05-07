@@ -1,4 +1,5 @@
 {
+  "alias": "ph_sensor_1",
   "ph_sensor": {
     "type": "ph_sensor",
     "interface": "i2c",
@@ -8,7 +9,26 @@
       "max": 14
     },
     "accuracy": 0.01,
-    "last_ph_reading": 7.2,
+    "last_content": 7.2,
+    "last_triggered": null,
+    "interpreter_function": "interpret_ph",
+    "trigger_actions": [
+      {
+        "condition": "acidic",
+        "function": "acidic_ph()",
+        "async": true
+      },
+      {
+        "condition": "neutral",
+        "function": "neutral_ph()",
+        "async": true
+      },
+      {
+        "condition": "alkaline",
+        "function": "alkaline_ph()",
+        "async": true
+      }
+    ],
     "temperature_compensation": true
   }
 }
