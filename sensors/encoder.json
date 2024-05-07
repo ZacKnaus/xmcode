@@ -1,0 +1,11 @@
+{
+  "encoder": {
+    "type": "encoder",
+    "interface": "quadrature",
+    "pin_a": "D15",
+    "pin_b": "D16",
+    "resolution": 1024,
+    "last_position": 2048,
+    "last_direction": "forward"
+  }
+}
