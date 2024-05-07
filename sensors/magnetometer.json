@@ -1,0 +1,18 @@
+{
+  "magnetometer": {
+    "type": "magnetometer",
+    "interface": "i2c",
+    "address": "0x1E",
+    "magnetic_field_range": {
+      "min": -50000,
+      "max": 50000
+    },
+    "resolution": 0.1,
+    "last_magnetic_field_reading": {
+      "x": 100,
+      "y": -200,
+      "z": 300
+    },
+    "units": "nT"
+  }
+}
