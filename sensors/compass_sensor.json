@@ -1,0 +1,14 @@
+{
+  "compass_sensor": {
+    "type": "compass_sensor",
+    "interface": "i2c",
+    "address": "0x1E",
+    "heading_range": {
+      "min": 0,
+      "max": 359.99
+    },
+    "accuracy": 0.1,
+    "last_heading_reading": 90.5,
+    "units": "degrees"
+  }
+}
