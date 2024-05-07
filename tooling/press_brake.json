@@ -1,0 +1,39 @@
+{
+  "press_brake": {
+    "type": "press_brake",
+    "max_force": 100,
+    "max_bending_length": 2000,
+    "max_opening_height": 500,
+    "commands": {
+      "set_force": {
+        "function": "press_brake_set_force(force)",
+        "parameters": {
+          "force": {
+            "type": "number",
+            "min": 0,
+            "max": 100
+          }
+        },
+        "async": false,
+        "comments": "Sets the bending force."
+      },
+      "set_bending_angle": {
+        "function": "press_brake_set_bending_angle(angle)",
+        "parameters": {
+          "angle": {
+            "type": "number",
+            "min": 0,
+            "max": 180
+          }
+        },
+        "async": false,
+        "comments": "Sets the bending angle."
+      },
+      "perform_bend": {
+        "function": "press_brake_perform_bend()",
+        "async": true,
+        "comments": "Performs the bending operation."
+      }
+    }
+  }
+}
