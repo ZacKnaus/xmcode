@@ -1,0 +1,32 @@
+{
+  "sandblaster": {
+    "type": "sandblaster",
+    "max_pressure": 10,
+    "nozzle_size": 5,
+    "abrasive_type": "aluminum_oxide",
+    "commands": {
+      "set_pressure": {
+        "function": "sandblaster_set_pressure(pressure)",
+        "parameters": {
+          "pressure": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Sets the sandblasting pressure."
+      },
+      "start_blasting": {
+        "function": "sandblaster_start_blasting()",
+        "async": true,
+        "comments": "Starts the sandblasting operation."
+      },
+      "stop_blasting": {
+        "function": "sandblaster_stop_blasting()",
+        "async": true,
+        "comments": "Stops the sandblasting operation."
+      }
+    }
+  }
+}
