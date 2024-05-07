@@ -1,4 +1,5 @@
 {
+  "alias": "barometric_pressure_sensor_1",
   "barometric_pressure_sensor": {
     "type": "barometric_pressure_sensor",
     "interface": "i2c",
@@ -8,7 +9,26 @@
       "max": 1100
     },
     "accuracy": 0.1,
-    "last_pressure_reading": 1013.2,
+    "last_content": 1013.2,
+    "last_triggered": null,
+    "interpreter_function": "interpret_barometric_pressure",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_barometric_pressure()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_barometric_pressure()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_barometric_pressure()",
+        "async": true
+      }
+    ],
     "units": "hPa"
   }
 }
