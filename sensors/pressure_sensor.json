@@ -1,0 +1,15 @@
+{
+  "pressure_sensor": {
+    "type": "pressure_sensor",
+    "interface": "i2c",
+    "address": "0x77",
+    "pressure_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "accuracy": 0.1,
+    "response_time": 10,
+    "last_pressure_reading": 98.7,
+    "units": "kPa"
+  }
+}
