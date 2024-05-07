@@ -1,13 +1,28 @@
 {
+  "alias": "color_sensor_1",
   "color_sensor": {
     "type": "color_sensor",
     "interface": "i2c",
     "address": "0x29",
     "color_space": "RGB",
-    "last_color_reading": {
+    "last_content": {
       "red": 255,
       "green": 128,
       "blue": 64
-    }
+    },
+    "last_triggered": null,
+    "interpreter_function": "interpret_color",
+    "trigger_actions": [
+      {
+        "condition": "match",
+        "function": "color_match()",
+        "async": true
+      },
+      {
+        "condition": "no_match",
+        "function": "color_no_match()",
+        "async": true
+      }
+    ]
   }
 }
