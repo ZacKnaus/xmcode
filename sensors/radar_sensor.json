@@ -1,15 +1,30 @@
 {
+  "alias": "radar_sensor_1",
   "radar_sensor": {
     "type": "radar_sensor",
     "interface": "spi",
     "frequency": 24,
     "max_range": 100,
     "angle_resolution": 1,
-    "last_target_data": {
+    "last_content": {
       "distance": 50,
       "angle": 30,
       "speed": 10
     },
+    "last_triggered": null,
+    "interpreter_function": "interpret_radar",
+    "trigger_actions": [
+      {
+        "condition": "target_detected",
+        "function": "radar_target_detected()",
+        "async": true
+      },
+      {
+        "condition": "no_target_detected",
+        "function": "radar_no_target_detected()",
+        "async": true
+      }
+    ],
     "units": {
       "distance": "m",
       "angle": "degrees",
