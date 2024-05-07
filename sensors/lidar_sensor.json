@@ -1,0 +1,23 @@
+{
+  "lidar_sensor": {
+    "type": "lidar_sensor",
+    "interface": "uart",
+    "baud_rate": 115200,
+    "max_range": 100,
+    "angle_resolution": 0.1,
+    "last_point_cloud_data": [
+      {
+        "distance": 10.5,
+        "angle": 45.2
+      },
+      {
+        "distance": 12.8,
+        "angle": 46.1
+      }
+    ],
+    "units": {
+      "distance": "m",
+      "angle": "degrees"
+    }
+  }
+}
