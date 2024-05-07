@@ -1,10 +1,24 @@
 {
+  "alias": "limit_switch_1",
   "limit_switch": {
     "type": "limit_switch",
     "interface": "digital",
     "pin": "D14",
     "normally_open": true,
-    "last_state": false,
-    "last_state_change_time": "2023-06-08T18:30:00Z"
+    "last_content": false,
+    "last_triggered": "2023-06-08T18:30:00Z",
+    "interpreter_function": "interpret_limit_switch",
+    "trigger_actions": [
+      {
+        "condition": "activated",
+        "function": "limit_switch_activated()",
+        "async": true
+      },
+      {
+        "condition": "deactivated",
+        "function": "limit_switch_deactivated()",
+        "async": true
+      }
+    ]
   }
 }
