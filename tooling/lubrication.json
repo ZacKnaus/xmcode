@@ -1,0 +1,32 @@
+{
+  "lubrication": {
+    "type": "lubrication_system",
+    "lubricant_type": "oil",
+    "viscosity": "ISO VG 68",
+    "reservoir_capacity": 2,
+    "commands": {
+      "on": {
+        "function": "lubrication_on()",
+        "async": true,
+        "comments": "Turns on the lubrication system."
+      },
+      "off": {
+        "function": "lubrication_off()",
+        "async": true,
+        "comments": "Turns off the lubrication system."
+      },
+      "set_flow_rate": {
+        "function": "lubrication_set_flow_rate(rate)",
+        "parameters": {
+          "rate": {
+            "type": "number",
+            "min": 0,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Sets the flow rate of the lubricant."
+      }
+    }
+  }
+}
