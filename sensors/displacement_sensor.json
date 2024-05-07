@@ -1,4 +1,5 @@
 {
+  "alias": "displacement_sensor_1",
   "displacement_sensor": {
     "type": "displacement_sensor",
     "interface": "analog",
@@ -8,7 +9,26 @@
       "max": 100
     },
     "accuracy": 0.01,
-    "last_displacement_reading": 25.6,
+    "last_content": 25.6,
+    "last_triggered": null,
+    "interpreter_function": "interpret_displacement",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_displacement()",
+        "async": true
+      },
+      {
+        "condition": "mid",
+        "function": "mid_displacement()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_displacement()",
+        "async": true
+      }
+    ],
     "units": "mm"
   }
 }
