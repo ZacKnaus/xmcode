@@ -1,0 +1,48 @@
+{
+  "lathe": {
+    "type": "lathe",
+    "max_speed": 3000,
+    "spindle_power": 5,
+    "spindle_bore": 50,
+    "max_turning_diameter": 500,
+    "max_turning_length": 1000,
+    "commands": {
+      "set_speed": {
+        "function": "lathe_set_speed(rpm)",
+        "parameters": {
+          "rpm": {
+            "type": "number",
+            "min": 0,
+            "max": 3000
+          }
+        },
+        "async": false,
+        "comments": "Sets the spindle speed."
+      },
+      "set_feed_rate": {
+        "function": "lathe_set_feed_rate(rate)",
+        "parameters": {
+          "rate": {
+            "type": "number",
+            "min": 0,
+            "max": 1000
+          }
+        },
+        "async": false,
+        "comments": "Sets the feed rate."
+      },
+      "set_thread_pitch": {
+        "function": "lathe_set_thread_pitch(pitch)",
+        "parameters": {
+          "pitch": {
+            "type": "number",
+            "min": 0.1,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Sets the thread pitch for threading operations."
+      }
+    }
+  }
+}
