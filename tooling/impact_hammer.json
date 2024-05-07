@@ -1,0 +1,21 @@
+{
+  "impact_hammer": {
+    "type": "impact_hammer",
+    "max_force": 1000,
+    "stroke_length": 50,
+    "commands": {
+      "fire": {
+        "function": "impact_hammer_fire(force)",
+        "parameters": {
+          "force": {
+            "type": "number",
+            "min": 0,
+            "max": 1000
+          }
+        },
+        "async": true,
+        "comments": "Fires the impact hammer with the specified force."
+      }
+    }
+  }
+}
