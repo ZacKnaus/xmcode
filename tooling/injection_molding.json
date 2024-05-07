@@ -1,0 +1,37 @@
+{
+  "injection_molding": {
+    "type": "injection_molding",
+    "max_clamping_force": 1000,
+    "max_injection_volume": 500,
+    "max_injection_pressure": 200,
+    "commands": {
+      "open_mold": {
+        "function": "injection_molding_open_mold()",
+        "async": true,
+        "comments": "Opens the mold."
+      },
+      "close_mold": {
+        "function": "injection_molding_close_mold()",
+        "async": true,
+        "comments": "Closes the mold."
+      },
+      "inject": {
+        "function": "injection_molding_inject(volume, pressure)",
+        "parameters": {
+          "volume": {
+            "type": "number",
+            "min": 0,
+            "max": 500
+          },
+          "pressure": {
+            "type": "number",
+            "min": 0,
+            "max": 200
+          }
+        },
+        "async": true,
+        "comments": "Injects the molten material into the mold."
+      }
+    }
+  }
+}
