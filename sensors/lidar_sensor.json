@@ -1,11 +1,12 @@
 {
+  "alias": "lidar_sensor_1",
   "lidar_sensor": {
     "type": "lidar_sensor",
     "interface": "uart",
     "baud_rate": 115200,
     "max_range": 100,
     "angle_resolution": 0.1,
-    "last_point_cloud_data": [
+    "last_content": [
       {
         "distance": 10.5,
         "angle": 45.2
@@ -13,6 +14,20 @@
       {
         "distance": 12.8,
         "angle": 46.1
+      }
+    ],
+    "last_triggered": null,
+    "interpreter_function": "interpret_lidar",
+    "trigger_actions": [
+      {
+        "condition": "object_detected",
+        "function": "lidar_object_detected()",
+        "async": true
+      },
+      {
+        "condition": "no_object_detected",
+        "function": "lidar_no_object_detected()",
+        "async": true
       }
     ],
     "units": {
