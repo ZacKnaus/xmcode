@@ -1,0 +1,28 @@
+{
+  "inkjet_printer": {
+    "type": "inkjet",
+    "resolution": {
+      "x": 1200,
+      "y": 1200
+    },
+    "num_colors": 4,
+    "cartridge_capacity": 50,
+    "commands": {
+      "print": {
+        "function": "inkjet_print(file)",
+        "parameters": {
+          "file": {
+            "type": "string"
+          }
+        },
+        "async": true,
+        "comments": "Prints the specified file."
+      },
+      "clean_nozzles": {
+        "function": "inkjet_clean_nozzles()",
+        "async": true,
+        "comments": "Cleans the printer nozzles."
+      }
+    }
+  }
+}
