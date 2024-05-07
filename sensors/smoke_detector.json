@@ -1,0 +1,9 @@
+{
+  "smoke_detector": {
+    "type": "smoke_detector",
+    "interface": "digital",
+    "pin": "D13",
+    "last_smoke_detected": false,
+    "last_detection_time": null
+  }
+}
