@@ -1,0 +1,14 @@
+{
+  "displacement_sensor": {
+    "type": "displacement_sensor",
+    "interface": "analog",
+    "pin": "A4",
+    "displacement_range": {
+      "min": 0,
+      "max": 100
+    },
+    "accuracy": 0.01,
+    "last_displacement_reading": 25.6,
+    "units": "mm"
+  }
+}
