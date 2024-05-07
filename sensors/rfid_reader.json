@@ -1,0 +1,13 @@
+{
+  "rfid_reader": {
+    "type": "rfid_reader",
+    "interface": "uart",
+    "baud_rate": 9600,
+    "supported_tags": ["ISO14443A", "ISO14443B", "ISO15693"],
+    "last_tag_data": {
+      "uid": "1234567890",
+      "type": "ISO14443A",
+      "timestamp": "2023-06-08T15:30:00Z"
+    }
+  }
+}
