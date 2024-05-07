@@ -1,0 +1,12 @@
+{
+  "uv_sensor": {
+    "type": "uv_sensor",
+    "interface": "i2c",
+    "address": "0x38",
+    "uv_index_range": {
+      "min": 0,
+      "max": 15
+    },
+    "last_uv_index_reading": 6.5
+  }
+}
