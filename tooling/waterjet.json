@@ -1,0 +1,34 @@
+{
+  "waterjet_cutter": {
+    "type": "waterjet_cutter",
+    "max_pressure": 60000,
+    "orifice_size": 0.3,
+    "abrasive_flow_rate": 0.5,
+    "commands": {
+      "set_pressure": {
+        "function": "waterjet_set_pressure(pressure)",
+        "parameters": {
+          "pressure": {
+            "type": "number",
+            "min": 0,
+            "max": 60000
+          }
+        },
+        "async": false,
+        "comments": "Sets the water pressure."
+      },
+      "set_abrasive_flow_rate": {
+        "function": "waterjet_set_abrasive_flow_rate(rate)",
+        "parameters": {
+          "rate": {
+            "type": "number",
+            "min": 0,
+            "max": 1
+          }
+        },
+        "async": false,
+        "comments": "Sets the abrasive flow rate."
+      }
+    }
+  }
+}
