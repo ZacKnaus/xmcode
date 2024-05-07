@@ -1,0 +1,14 @@
+{
+  "torque_sensor": {
+    "type": "torque_sensor",
+    "interface": "analog",
+    "pin": "A10",
+    "torque_range": {
+      "min": -50,
+      "max": 50
+    },
+    "accuracy": 0.01,
+    "last_torque_reading": 10.25,
+    "units": "N·m"
+  }
+}
