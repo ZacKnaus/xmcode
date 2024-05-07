@@ -1,0 +1,10 @@
+{
+  "infrared_sensor": {
+    "type": "infrared_sensor",
+    "interface": "analog",
+    "pin": "A0",
+    "detection_range": 100,
+    "last_presence_detected": true,
+    "last_detection_time": "2023-06-08T12:15:00Z"
+  }
+}
