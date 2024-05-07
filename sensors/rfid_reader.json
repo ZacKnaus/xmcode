@@ -1,13 +1,28 @@
 {
+  "alias": "rfid_reader_1",
   "rfid_reader": {
     "type": "rfid_reader",
     "interface": "uart",
     "baud_rate": 9600,
     "supported_tags": ["ISO14443A", "ISO14443B", "ISO15693"],
-    "last_tag_data": {
+    "last_content": {
       "uid": "1234567890",
       "type": "ISO14443A",
       "timestamp": "2023-06-08T15:30:00Z"
-    }
+    },
+    "last_triggered": null,
+    "interpreter_function": "interpret_rfid",
+    "trigger_actions": [
+      {
+        "condition": "tag_detected",
+        "function": "rfid_tag_detected()",
+        "async": true
+      },
+      {
+        "condition": "tag_removed",
+        "function": "rfid_tag_removed()",
+        "async": true
+      }
+    ]
   }
 }
