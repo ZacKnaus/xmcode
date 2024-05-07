@@ -1,0 +1,17 @@
+{
+  "bluetooth_beacon_scanner": {
+    "type": "bluetooth_beacon_scanner",
+    "interface": "uart",
+    "baud_rate": 9600,
+    "scan_interval": 1000,
+    "rssi_threshold": -70,
+    "last_beacon_data": {
+      "uuid": "e2c56db5-dffb-48d2-b060-d0f5a71096e0",
+      "major": 1000,
+      "minor": 2000,
+      "rssi": -65,
+      "tx_power": -59,
+      "timestamp": "2023-06-08T10:30:00Z"
+    }
+  }
+}
