@@ -1,0 +1,28 @@
+{
+  "atc": {
+    "type": "automatic_tool_changer",
+    "num_slots": 12,
+    "tool_identification": "rfid",
+    "tool_change_time": 5,
+    "tool_holder_type": "ISO 40",
+    "commands": {
+      "change_tool": {
+        "function": "atc_change_tool(tool_id)",
+        "parameters": {
+          "tool_id": {
+            "type": "number",
+            "min": 1,
+            "max": 12
+          }
+        },
+        "async": true,
+        "comments": "Changes the tool in the spindle."
+      },
+      "get_current_tool": {
+        "function": "atc_get_current_tool()",
+        "async": false,
+        "comments": "Returns the ID of the currently loaded tool."
+      }
+    }
+  }
+}
