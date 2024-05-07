@@ -1,0 +1,14 @@
+{
+  "laser_distance_sensor": {
+    "type": "laser_distance_sensor",
+    "interface": "uart",
+    "baud_rate": 115200,
+    "distance_range": {
+      "min": 0,
+      "max": 10000
+    },
+    "accuracy": 0.1,
+    "last_distance_reading": 2500.8,
+    "units": "mm"
+  }
+}
