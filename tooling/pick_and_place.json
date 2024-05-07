@@ -1,0 +1,20 @@
+{
+  "pick_and_place": {
+    "type": "pick_and_place",
+    "max_speed": 500,
+    "nozzle_size": 0.5,
+    "vacuum_pressure": -0.8,
+    "commands": {
+      "pick": {
+        "function": "pick_and_place_pick()",
+        "async": true,
+        "comments": "Picks up a component."
+      },
+      "place": {
+        "function": "pick_and_place_place()",
+        "async": true,
+        "comments": "Places the picked component."
+      }
+    }
+  }
+}
