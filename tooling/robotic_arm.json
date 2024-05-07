@@ -1,0 +1,50 @@
+{
+  "robotic_arm": {
+    "num_axes": 6,
+    "max_reach": 1000,
+    "max_payload": 10,
+    "repeatability": 0.1,
+    "end_effector": {
+      "type": "gripper",
+      "max_opening": 100,
+      "gripping_force": 50
+    },
+    "commands": {
+      "move_to": {
+        "function": "arm_move_to(x, y, z, rx, ry, rz)",
+        "parameters": {
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "z": {
+            "type": "number"
+          },
+          "rx": {
+            "type": "number"
+          },
+          "ry": {
+            "type": "number"
+          },
+          "rz": {
+            "type": "number"
+          }
+        },
+        "async": true,
+        "comments": "Moves the arm to a specified position and orientation."
+      },
+      "open_gripper": {
+        "function": "arm_open_gripper()",
+        "async": true,
+        "comments": "Opens the gripper."
+      },
+      "close_gripper": {
+        "function": "arm_close_gripper()",
+        "async": true,
+        "comments": "Closes the gripper."
+      }
+    }
+  }
+}
