@@ -1,0 +1,10 @@
+{
+  "tilt_sensor": {
+    "type": "tilt_sensor",
+    "interface": "digital",
+    "pin": "D12",
+    "tilt_threshold": 30,
+    "last_tilt_state": true,
+    "last_tilt_time": "2023-06-08T13:30:00Z"
+  }
+}
