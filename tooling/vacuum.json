@@ -1,0 +1,32 @@
+{
+  "vacuum": {
+    "type": "vacuum_system",
+    "max_pressure": -0.8,
+    "flow_rate": 100,
+    "hose_diameter": 10,
+    "commands": {
+      "on": {
+        "function": "vacuum_on()",
+        "async": true,
+        "comments": "Turns on the vacuum."
+      },
+      "off": {
+        "function": "vacuum_off()",
+        "async": true,
+        "comments": "Turns off the vacuum."
+      },
+      "set_pressure": {
+        "function": "vacuum_set_pressure(pressure)",
+        "parameters": {
+          "pressure": {
+            "type": "number",
+            "min": -1,
+            "max": 0
+          }
+        },
+        "async": false,
+        "comments": "Sets the pressure of the vacuum."
+      }
+    }
+  }
+}
