@@ -1,4 +1,5 @@
 {
+  "alias": "radiation_sensor_1",
   "radiation_sensor": {
     "type": "radiation_sensor",
     "sensor_type": "geiger_counter",
@@ -8,7 +9,26 @@
       "min": 0,
       "max": 1000
     },
-    "last_radiation_reading": 100,
+    "last_content": 100,
+    "last_triggered": null,
+    "interpreter_function": "interpret_radiation",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_radiation()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_radiation()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_radiation()",
+        "async": true
+      }
+    ],
     "units": "uSv/h"
   }
 }
