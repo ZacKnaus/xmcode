@@ -1,9 +1,23 @@
 {
+  "alias": "smoke_detector_1",
   "smoke_detector": {
     "type": "smoke_detector",
     "interface": "digital",
     "pin": "D13",
-    "last_smoke_detected": false,
-    "last_detection_time": null
+    "last_content": false,
+    "last_triggered": null,
+    "interpreter_function": "interpret_smoke_detector",
+    "trigger_actions": [
+      {
+        "condition": "smoke_detected",
+        "function": "smoke_detected()",
+        "async": true
+      },
+      {
+        "condition": "no_smoke_detected",
+        "function": "no_smoke_detected()",
+        "async": true
+      }
+    ]
   }
 }
