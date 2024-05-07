@@ -1,4 +1,5 @@
 {
+  "alias": "soil_moisture_sensor_1",
   "soil_moisture_sensor": {
     "type": "soil_moisture_sensor",
     "interface": "analog",
@@ -7,7 +8,26 @@
       "min": 0,
       "max": 100
     },
-    "last_moisture_reading": 60,
+    "last_content": 60,
+    "last_triggered": null,
+    "interpreter_function": "interpret_soil_moisture",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_soil_moisture()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_soil_moisture()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_soil_moisture()",
+        "async": true
+      }
+    ],
     "units": "%"
   }
 }
