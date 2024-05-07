@@ -1,4 +1,5 @@
 {
+  "alias": "level_sensor_1",
   "level_sensor": {
     "type": "level_sensor",
     "interface": "analog",
@@ -8,7 +9,26 @@
       "max": 1000
     },
     "accuracy": 0.5,
-    "last_level_reading": 750.2,
+    "last_content": 750.2,
+    "last_triggered": null,
+    "interpreter_function": "interpret_level",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_level()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_level()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_level()",
+        "async": true
+      }
+    ],
     "units": "mm"
   }
 }
