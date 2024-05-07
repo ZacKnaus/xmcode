@@ -1,0 +1,14 @@
+{
+  "temperature_sensor": {
+    "type": "temperature_sensor",
+    "interface": "i2c",
+    "address": "0x48",
+    "temperature_range": {
+      "min": -40,
+      "max": 125
+    },
+    "accuracy": 0.1,
+    "last_temperature_reading": 25.5,
+    "units": "°C"
+  }
+}
