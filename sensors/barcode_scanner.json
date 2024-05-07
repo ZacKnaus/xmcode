@@ -1,12 +1,27 @@
 {
-  "barcode_scanner": {
-    "type": "barcode_scanner",
-    "interface": "usb",
-    "supported_symbologies": ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "Code 128"],
-    "last_barcode_data": {
-      "symbology": "EAN-13",
-      "data": "1234567890123",
-      "timestamp": "2023-06-08T16:30:00Z"
-    }
-  }
+ "alias": "barcode_scanner_1",
+ "barcode_scanner": {
+   "type": "barcode_scanner",
+   "interface": "usb",
+   "supported_symbologies": ["EAN-13", "EAN-8", "UPC-A", "UPC-E", "Code 128"],
+   "last_content": {
+     "symbology": "EAN-13",
+     "data": "1234567890123",
+     "timestamp": "2023-06-08T16:30:00Z"
+   },
+   "last_triggered": null,
+   "interpreter_function": "interpret_barcode",
+   "trigger_actions": [
+     {
+       "condition": "match",
+       "function": "barcode_match()",
+       "async": true
+     },
+     {
+       "condition": "no_match",
+       "function": "barcode_no_match()",
+       "async": true
+     }
+   ]
+ }
 }
