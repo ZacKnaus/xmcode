@@ -1,4 +1,5 @@
 {
+  "alias": "magnetometer_1",
   "magnetometer": {
     "type": "magnetometer",
     "interface": "i2c",
@@ -8,11 +9,25 @@
       "max": 50000
     },
     "resolution": 0.1,
-    "last_magnetic_field_reading": {
+    "last_content": {
       "x": 100,
       "y": -200,
       "z": 300
     },
+    "last_triggered": null,
+    "interpreter_function": "interpret_magnetometer",
+    "trigger_actions": [
+      {
+        "condition": "strong_field",
+        "function": "strong_magnetic_field()",
+        "async": true
+      },
+      {
+        "condition": "weak_field",
+        "function": "weak_magnetic_field()",
+        "async": true
+      }
+    ],
     "units": "nT"
   }
 }
