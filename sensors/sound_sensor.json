@@ -1,0 +1,34 @@
+{
+  "alias": "sound_sensor_1",
+  "sound_sensor": {
+    "type": "sound_sensor",
+    "sensor_type": "microphone",
+    "interface": "analog",
+    "pin": "A6",
+    "sound_level_range": {
+      "min": 0,
+      "max": 120
+    },
+    "last_content": 65,
+    "last_triggered": null,
+    "interpreter_function": "interpret_sound_level",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_sound_level()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_sound_level()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_sound_level()",
+        "async": true
+      }
+    ],
+    "units": "dB"
+  }
+}
