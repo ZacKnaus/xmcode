@@ -1,0 +1,28 @@
+{
+  "camera": {
+    "type": "camera",
+    "resolution": {
+      "width": 1920,
+      "height": 1080
+    },
+    "frame_rate": 30,
+    "interface": "usb",
+    "commands": {
+      "capture_image": {
+        "function": "camera_capture_image()",
+        "async": true,
+        "comments": "Captures an image from the camera."
+      },
+      "start_recording": {
+        "function": "camera_start_recording()",
+        "async": true,
+        "comments": "Starts recording video from the camera."
+      },
+      "stop_recording": {
+        "function": "camera_stop_recording()",
+        "async": true,
+        "comments": "Stops recording video from the camera."
+      }
+    }
+  }
+}
