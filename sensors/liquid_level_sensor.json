@@ -1,4 +1,5 @@
 {
+  "alias": "liquid_level_sensor_1",
   "liquid_level_sensor": {
     "type": "liquid_level_sensor",
     "interface": "analog",
@@ -8,7 +9,26 @@
       "max": 1000
     },
     "accuracy": 0.5,
-    "last_level_reading": 800,
+    "last_content": 800,
+    "last_triggered": null,
+    "interpreter_function": "interpret_liquid_level",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_liquid_level()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_liquid_level()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_liquid_level()",
+        "async": true
+      }
+    ],
     "units": "mL"
   }
 }
