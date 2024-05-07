@@ -1,15 +1,35 @@
 {
- "wind_speed_sensor_anemometer": {
-   "type": "wind_speed_sensor",
-   "sensor_type": "anemometer",
-   "interface": "analog",
-   "pin": "A9",
-   "speed_range": {
-     "min": 0,
-     "max": 100
-   },
-   "accuracy": 0.1,
-   "last_speed_reading": 15.5,
-   "units": "m/s"
- }
+  "alias": "wind_speed_sensor_anemometer_1",
+  "wind_speed_sensor_anemometer": {
+    "type": "wind_speed_sensor",
+    "sensor_type": "anemometer",
+    "interface": "analog",
+    "pin": "A9",
+    "speed_range": {
+      "min": 0,
+      "max": 100
+    },
+    "accuracy": 0.1,
+    "last_content": 15.5,
+    "last_triggered": null,
+    "interpreter_function": "interpret_wind_speed",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_wind_speed()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_wind_speed()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_wind_speed()",
+        "async": true
+      }
+    ],
+    "units": "m/s"
+  }
 }
