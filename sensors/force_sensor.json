@@ -1,0 +1,14 @@
+{
+  "force_sensor": {
+    "type": "force_sensor",
+    "interface": "analog",
+    "pin": "A2",
+    "force_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "accuracy": 0.1,
+    "last_force_reading": 250.5,
+    "units": "N"
+  }
+}
