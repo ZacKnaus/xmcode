@@ -1,0 +1,36 @@
+{
+  "polishing_machine": {
+    "type": "polishing_machine",
+    "max_speed": 3000,
+    "polishing_pressure_range": {
+      "min": 1,
+      "max": 10
+    },
+    "commands": {
+      "set_speed": {
+        "function": "polishing_machine_set_speed(rpm)",
+        "parameters": {
+          "rpm": {
+            "type": "number",
+            "min": 0,
+            "max": 3000
+          }
+        },
+        "async": false,
+        "comments": "Sets the polishing speed."
+      },
+      "set_pressure": {
+        "function": "polishing_machine_set_pressure(pressure)",
+        "parameters": {
+          "pressure": {
+            "type": "number",
+            "min": 1,
+            "max": 10
+          }
+        },
+        "async": false,
+        "comments": "Sets the polishing pressure."
+      }
+    }
+  }
+}
