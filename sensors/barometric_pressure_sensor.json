@@ -1,0 +1,14 @@
+{
+  "barometric_pressure_sensor": {
+    "type": "barometric_pressure_sensor",
+    "interface": "i2c",
+    "address": "0x77",
+    "pressure_range": {
+      "min": 300,
+      "max": 1100
+    },
+    "accuracy": 0.1,
+    "last_pressure_reading": 1013.2,
+    "units": "hPa"
+  }
+}
