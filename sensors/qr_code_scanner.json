@@ -1,0 +1,12 @@
+{
+  "qr_code_scanner": {
+    "type": "qr_code_scanner",
+    "interface": "usb",
+    "supported_versions": ["QR Code Model 1", "QR Code Model 2"],
+    "last_qr_code_data": {
+      "version": "QR Code Model 2",
+      "data": "https://www.example.com",
+      "timestamp": "2023-06-08T17:00:00Z"
+    }
+  }
+}
