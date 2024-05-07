@@ -1,0 +1,10 @@
+{
+  "vibration_sensor": {
+    "type": "vibration_sensor",
+    "interface": "analog",
+    "pin": "A1",
+    "vibration_threshold": 500,
+    "last_vibration_detected": true,
+    "last_vibration_time": "2023-06-08T14:00:00Z"
+  }
+}
