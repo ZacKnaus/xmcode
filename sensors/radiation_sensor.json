@@ -1,0 +1,14 @@
+{
+  "radiation_sensor": {
+    "type": "radiation_sensor",
+    "sensor_type": "geiger_counter",
+    "interface": "uart",
+    "baud_rate": 9600,
+    "radiation_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "last_radiation_reading": 100,
+    "units": "uSv/h"
+  }
+}
