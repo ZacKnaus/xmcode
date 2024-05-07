@@ -1,0 +1,15 @@
+{
+  "ultrasonic_distance_sensor": {
+    "type": "ultrasonic_distance_sensor",
+    "interface": "gpio",
+    "trigger_pin": "D5",
+    "echo_pin": "D6",
+    "distance_range": {
+      "min": 0,
+      "max": 500
+    },
+    "accuracy": 0.1,
+    "last_distance_reading": 150.5,
+    "units": "cm"
+  }
+}
