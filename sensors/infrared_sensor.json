@@ -1,10 +1,24 @@
 {
+  "alias": "infrared_sensor_1",
   "infrared_sensor": {
     "type": "infrared_sensor",
     "interface": "analog",
     "pin": "A0",
     "detection_range": 100,
-    "last_presence_detected": true,
-    "last_detection_time": "2023-06-08T12:15:00Z"
+    "last_content": true,
+    "last_triggered": "2023-06-08T12:15:00Z",
+    "interpreter_function": "interpret_infrared",
+    "trigger_actions": [
+      {
+        "condition": "presence_detected",
+        "function": "infrared_presence_detected()",
+        "async": true
+      },
+      {
+        "condition": "presence_not_detected",
+        "function": "infrared_presence_not_detected()",
+        "async": true
+      }
+    ]
   }
 }
