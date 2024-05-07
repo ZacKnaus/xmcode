@@ -1,0 +1,14 @@
+{
+  "load_cell": {
+    "type": "load_cell",
+    "interface": "analog",
+    "pin": "A12",
+    "load_range": {
+      "min": 0,
+      "max": 10
+    },
+    "accuracy": 0.001,
+    "last_load_reading": 5.25,
+    "units": "kg"
+  }
+}
