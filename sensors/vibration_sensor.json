@@ -1,10 +1,24 @@
 {
+  "alias": "vibration_sensor_1",
   "vibration_sensor": {
     "type": "vibration_sensor",
     "interface": "analog",
     "pin": "A1",
     "vibration_threshold": 500,
-    "last_vibration_detected": true,
-    "last_vibration_time": "2023-06-08T14:00:00Z"
+    "last_content": true,
+    "last_triggered": "2023-06-08T14:00:00Z",
+    "interpreter_function": "interpret_vibration",
+    "trigger_actions": [
+      {
+        "condition": "vibration_detected",
+        "function": "vibration_detected()",
+        "async": true
+      },
+      {
+        "condition": "no_vibration_detected",
+        "function": "no_vibration_detected()",
+        "async": true
+      }
+    ]
   }
 }
