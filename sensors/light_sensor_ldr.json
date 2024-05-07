@@ -1,0 +1,14 @@
+{
+  "light_sensor_ldr": {
+    "type": "light_sensor",
+    "sensor_type": "LDR",
+    "interface": "analog",
+    "pin": "A5",
+    "light_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "last_light_reading": 500,
+    "units": "lux"
+  }
+}
