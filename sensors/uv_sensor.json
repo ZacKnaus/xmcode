@@ -1,4 +1,5 @@
 {
+  "alias": "uv_sensor_1",
   "uv_sensor": {
     "type": "uv_sensor",
     "interface": "i2c",
@@ -7,6 +8,35 @@
       "min": 0,
       "max": 15
     },
-    "last_uv_index_reading": 6.5
+    "last_content": 6.5,
+    "last_triggered": null,
+    "interpreter_function": "interpret_uv_index",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_uv_index()",
+        "async": true
+      },
+      {
+        "condition": "moderate",
+        "function": "moderate_uv_index()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_uv_index()",
+        "async": true
+      },
+      {
+        "condition": "very_high",
+        "function": "very_high_uv_index()",
+        "async": true
+      },
+      {
+        "condition": "extreme",
+        "function": "extreme_uv_index()",
+        "async": true
+      }
+    ]
   }
 }
