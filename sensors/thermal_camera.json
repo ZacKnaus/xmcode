@@ -1,0 +1,19 @@
+{
+  "thermal_camera": {
+    "type": "camera",
+    "sensor_type": "thermal",
+    "interface": "i2c",
+    "address": "0x69",
+    "resolution": {
+      "width": 640,
+      "height": 480
+    },
+    "temperature_range": {
+      "min": -20,
+      "max": 120
+    },
+    "accuracy": 0.1,
+    "last_thermal_image_data": "base64_encoded_thermal_image",
+    "units": "°C"
+  }
+}
