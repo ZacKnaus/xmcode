@@ -1,0 +1,32 @@
+{
+  "grinder": {
+    "type": "grinder",
+    "max_speed": 10000,
+    "wheel_type": "abrasive",
+    "wheel_diameter": 200,
+    "commands": {
+      "set_speed": {
+        "function": "grinder_set_speed(rpm)",
+        "parameters": {
+          "rpm": {
+            "type": "number",
+            "min": 0,
+            "max": 10000
+          }
+        },
+        "async": false,
+        "comments": "Sets the grinding speed."
+      },
+      "start_grinding": {
+        "function": "grinder_start_grinding()",
+        "async": true,
+        "comments": "Starts the grinding operation."
+      },
+      "stop_grinding": {
+        "function": "grinder_stop_grinding()",
+        "async": true,
+        "comments": "Stops the grinding operation."
+      }
+    }
+  }
+}
