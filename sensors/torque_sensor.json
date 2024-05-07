@@ -1,4 +1,5 @@
 {
+  "alias": "torque_sensor_1",
   "torque_sensor": {
     "type": "torque_sensor",
     "interface": "analog",
@@ -8,7 +9,26 @@
       "max": 50
     },
     "accuracy": 0.01,
-    "last_torque_reading": 10.25,
+    "last_content": 10.25,
+    "last_triggered": null,
+    "interpreter_function": "interpret_torque",
+    "trigger_actions": [
+      {
+        "condition": "low",
+        "function": "low_torque()",
+        "async": true
+      },
+      {
+        "condition": "normal",
+        "function": "normal_torque()",
+        "async": true
+      },
+      {
+        "condition": "high",
+        "function": "high_torque()",
+        "async": true
+      }
+    ],
     "units": "N·m"
   }
 }
