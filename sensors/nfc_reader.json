@@ -1,14 +1,29 @@
 {
+  "alias": "nfc_reader_1",
   "nfc_reader": {
     "type": "nfc_reader",
     "interface": "i2c",
     "address": "0x24",
     "supported_tags": ["NFC Type 1", "NFC Type 2", "NFC Type 4"],
-    "last_tag_data": {
+    "last_content": {
       "uid": "ABCDEF01",
       "type": "NFC Type 2",
       "data": "Hello, NFC!",
       "timestamp": "2023-06-08T16:00:00Z"
-    }
+    },
+    "last_triggered": null,
+    "interpreter_function": "interpret_nfc",
+    "trigger_actions": [
+      {
+        "condition": "tag_detected",
+        "function": "nfc_tag_detected()",
+        "async": true
+      },
+      {
+        "condition": "tag_removed",
+        "function": "nfc_tag_removed()",
+        "async": true
+      }
+    ]
   }
 }
