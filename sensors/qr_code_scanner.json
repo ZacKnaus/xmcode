@@ -1,12 +1,27 @@
 {
+  "alias": "qr_code_scanner_1",
   "qr_code_scanner": {
     "type": "qr_code_scanner",
     "interface": "usb",
     "supported_versions": ["QR Code Model 1", "QR Code Model 2"],
-    "last_qr_code_data": {
+    "last_content": {
       "version": "QR Code Model 2",
       "data": "https://www.example.com",
       "timestamp": "2023-06-08T17:00:00Z"
-    }
+    },
+    "last_triggered": null,
+    "interpreter_function": "interpret_qr_code",
+    "trigger_actions": [
+      {
+        "condition": "code_detected",
+        "function": "qr_code_detected()",
+        "async": true
+      },
+      {
+        "condition": "code_not_detected",
+        "function": "qr_code_not_detected()",
+        "async": true
+      }
+    ]
   }
 }
