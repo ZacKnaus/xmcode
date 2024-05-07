@@ -1,0 +1,14 @@
+{
+  "level_sensor": {
+    "type": "level_sensor",
+    "interface": "analog",
+    "pin": "A3",
+    "level_range": {
+      "min": 0,
+      "max": 1000
+    },
+    "accuracy": 0.5,
+    "last_level_reading": 750.2,
+    "units": "mm"
+  }
+}
