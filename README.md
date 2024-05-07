@@ -94,111 +94,40 @@ The `disallowed_coordinates` section defines a list of coordinate ranges that ar
 
 ### 3. Tooling
 
-The `tooling` section specifies the available tools and their associated settings. Each of these sections contains their own independent schemas. They includes sub-sections for different types of tools, such as:
+The `tooling` section specifies the available tools and their associated settings. Each tool is defined in its own schema file located in the `tooling` subdirectory. The common properties and functionality shared by all tools include:
 
-- `spindle`: Settings for the spindle, which is a rotating tool used for cutting or drilling.
-  - `max_rpm`: The maximum rotational speed of the spindle in revolutions per minute (RPM).
-  - `hp`: The horsepower rating of the spindle motor.
-  - `tool_offsets`: The offset values for each tool associated with the spindle.
-    - Each tool offset is specified using the tool name as the key and the offset values in the x, y, and z axes.
-  - `wear_compensation`: The wear compensation values for the spindle in the x, y, and z axes.
-  - `commands`: The available commands for the spindle.
-    - `on`: The command to turn on the spindle.
-      - `function`: The name of the function to be executed when the command is called.
-      - `comments`: Additional comments or notes about the command.
-    - `off`: The command to turn off the spindle.
-      - `function`: The name of the function to be executed when the command is called.
-      - `comments`: Additional comments or notes about the command.
-    - `adjust_speed`: The command to adjust the speed of the spindle.
-      - `function`: The name of the function to be executed when the command is called.
-      - `parameters`: The parameters required for the command.
-        - `rpm`: The rotational speed parameter.
-          - `type`: The data type of the parameter (e.g., "number").
-          - `min`: The minimum allowed value for the parameter.
-          - `max`: The maximum allowed value for the parameter.
-      - `async`: A boolean value indicating whether the command should be executed asynchronously.
-      - `comments`: Additional comments or notes about the command.
-- `laser`: Settings for the laser tool, which is used for cutting or engraving.
-  - `max_power`: The maximum power output of the laser in watts.
-  - `wavelength`: The wavelength of the laser in nanometers.
-  - `tool_offsets`: The offset values for each tool associated with the laser.
-    - Each tool offset is specified using the tool name as the key and the offset values in the x, y, and z axes.
-  - `commands`: The available commands for the laser.
-    - `on`: The command to turn on the laser.
-      - `function`: The name of the function to be executed when the command is called.
-      - `comments`: Additional comments or notes about the command.
-    - `off`: The command to turn off the laser.
-      - `function`: The name of the function to be executed when the command is called.
-      - `comments`: Additional comments or notes about the command.
-    - `set_power`: The command to set the power of the laser.
-      - `function`: The name of the function to be executed when the command is called.
-      - `parameters`: The parameters required for the command.
-        - `power`: The laser power parameter.
-          - `type`: The data type of the parameter (e.g., "number").
-          - `min`: The minimum allowed value for the parameter.
-          - `max`: The maximum allowed value for the parameter.
-      - `async`: A boolean value indicating whether the command should be executed asynchronously.
-      - `comments`: Additional comments or notes about the command.
-- `3d_printer`: Settings for the 3D printer tool, which is used for additive manufacturing.
-  - `max_temp`: The maximum temperature that the 3D printer can reach in degrees Celsius.
-  - `nozzle_diameter`: The range of supported nozzle diameters for the 3D printer.
-    - `min`: The minimum nozzle diameter in millimeters.
-    - `max`: The maximum nozzle diameter in millimeters.
-  - `filament_diameter`: The diameter of the filament used by the 3D printer in millimeters.
-  - `bed_leveling`: Settings related to bed leveling for the 3D printer.
-    - `enabled`: A boolean value indicating whether bed leveling is enabled or disabled.
-    - `grid_size`: The size of the grid used for bed leveling.
-      - `x`: The number of grid points in the x-axis.
-      - `y`: The number of grid points in the y-axis.
-    - `last_leveled`: The timestamp of the last bed leveling process.
-    - `command`: The custom command for performing bed leveling.
-      - `function`: The name of the function to be executed for bed leveling.
-  - `commands`: The available commands for the 3D printer.
-    - `extrude`: The command to extrude filament.
-      - `function`: The name of the function to be executed when the command is called.
-      - `parameters`: The parameters required for the command.
-        - `length`: The length of filament to extrude.
-          - `type`: The data type of the parameter (e.g., "number").
-          - `min`: The minimum allowed value for the parameter.
-          - `max`: The maximum allowed value for the parameter.
-      - `async`: A boolean value indicating whether the command should be executed asynchronously.
-      - `comments`: Additional comments or notes about the command.
-    - `retract`: The command to retract filament.
-      - `function`: The name of the function to be executed when the command is called.
-      - `parameters`: The parameters required for the command.
-        - `length`: The length of filament to retract.
-          - `type`: The data type of the parameter (e.g., "number").
-          - `min`: The minimum allowed value for the parameter.
-          - `max`: The maximum allowed value for the parameter.
-      - `async`: A boolean value indicating whether the command should be executed asynchronously.
-      - `comments`: Additional comments or notes about the command.
-    - `set_temp`: The command to set the temperature of the nozzle.
-      - `function`: The name of the function to be executed when the command is called.
-      - `parameters`: The parameters required for the command.
-        - `temp`: The temperature parameter.
-          - `type`: The data type of the parameter (e.g., "number").
-          - `min`: The minimum allowed value for the parameter.
-          - `max`: The maximum allowed value for the parameter.
-      - `async`: A boolean value indicating whether the command should be executed asynchronously.
-      - `comments`: Additional comments or notes about the command.
+- `alias` (required): A unique identifier for the tool, which is used to reference the tool elsewhere in the `settings.json` file. For example, if a spindle with an alias of "Dewalt_S611" is mounted on the z-axis, it will be referenced as "Dewalt_S611" in the z-axis portion of the `settings.json` file.
+- `commands`: The available commands for the tool.
+  - Each command is identified by a unique name and includes the following properties:
+    - `function`: The name of the function to be executed when the command is called.
+    - `parameters` (optional): The parameters required for the command, specified as key-value pairs.
+      - Each parameter includes:
+        - `type`: The data type of the parameter (e.g., "number", "string").
+        - `min` (optional): The minimum allowed value for the parameter.
+        - `max` (optional): The maximum allowed value for the parameter.
+        - `enum` (optional): An array of predefined values for the parameter.
+    - `async` (optional): A boolean value indicating whether the command should be executed asynchronously. Defaults to `false`.
+    - `comments` (optional): Additional comments or notes about the command.
 
-The `tooling` section provides a flexible and extensible way to define various types of tools and their associated settings. The examples shown above, such as spindle, laser, and 3D printer, are just a few possibilities. You can add more tooling types and customize their settings based on your specific machine and application requirements.
+For detailed information and examples of specific tooling schemas, please refer to the individual schema files in the `tooling` subdirectory.
 
 ### 4. Sensors
 
-The `sensors` section defines the available sensors and their configurations. Each sensor is identified by a unique alias and includes the following properties:
+The `sensors` section defines the available sensors and their configurations. Each sensor is identified by a unique alias and its schema is stored in a separate file within the `sensors` subdirectory. The common properties and functionality shared by all sensors include:
 
-- `type`: The type of sensor (e.g., "limit_switch", "temperature", "color_sensor", "torque_sensor", "current_sensor", "encoder", "load_cell", "strain_gauge", "back_emf_sensor").
+- `alias` (required): A unique identifier for the sensor, which is used to reference the sensor elsewhere in the `settings.json` file.
+- `type`: The type of sensor (e.g., "limit_switch", "temperature", "color_sensor").
 - `interface`: The communication interface used by the sensor (e.g., "digital", "analog", "i2c", "spi").
-- `pin` or `address`: The pin number or address to which the sensor is connected, depending on the interface.
-- `response_frequency`: The frequency at which the sensor provides updates or can be read, typically specified in Hz.
+- `pin` or `address` (optional): The pin number or address to which the sensor is connected, depending on the interface.
 - `last_content`: The last data provided by the sensor.
 - `last_triggered`: The timestamp of the last trigger event.
-- `interpreter_function`: The name of the function used to interpret the sensor's raw values into meaningful data.
+- `interpreter_function` (optional): The name of the function used to interpret the sensor's raw values into meaningful data. If not specified, the raw value will be directly used in the `trigger_actions`.
 - `trigger_actions`: The actions to be performed when certain conditions are met based on the sensor's interpreted data.
   - `condition`: The condition that triggers the action (e.g., a specific value or range).
   - `function`: The name of the function to be executed when the condition is met.
   - `async`: A boolean value indicating whether the action should be executed asynchronously.
+
+For comprehensive examples and specific details of each sensor schema, please refer to the individual schema files located in the `sensors` subdirectory.
 
 ### 5. Motor Control Boards
 
