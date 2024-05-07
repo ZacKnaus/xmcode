@@ -1,0 +1,32 @@
+{
+  "cooling": {
+    "type": "cooling_system",
+    "coolant_type": "water",
+    "tank_capacity": 50,
+    "pump_flow_rate": 10,
+    "commands": {
+      "on": {
+        "function": "cooling_on()",
+        "async": true,
+        "comments": "Turns on the cooling system."
+      },
+      "off": {
+        "function": "cooling_off()",
+        "async": true,
+        "comments": "Turns off the cooling system."
+      },
+      "set_flow_rate": {
+        "function": "cooling_set_flow_rate(rate)",
+        "parameters": {
+          "rate": {
+            "type": "number",
+            "min": 0,
+            "max": 20
+          }
+        },
+        "async": false,
+        "comments": "Sets the flow rate of the coolant."
+      }
+    }
+  }
+}
