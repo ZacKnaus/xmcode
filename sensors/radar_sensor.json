@@ -1,0 +1,19 @@
+{
+  "radar_sensor": {
+    "type": "radar_sensor",
+    "interface": "spi",
+    "frequency": 24,
+    "max_range": 100,
+    "angle_resolution": 1,
+    "last_target_data": {
+      "distance": 50,
+      "angle": 30,
+      "speed": 10
+    },
+    "units": {
+      "distance": "m",
+      "angle": "degrees",
+      "speed": "m/s"
+    }
+  }
+}
