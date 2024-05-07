@@ -1,4 +1,5 @@
 {
+  "alias": "compass_sensor_1",
   "compass_sensor": {
     "type": "compass_sensor",
     "interface": "i2c",
@@ -8,7 +9,31 @@
       "max": 359.99
     },
     "accuracy": 0.1,
-    "last_heading_reading": 90.5,
+    "last_content": 90.5,
+    "last_triggered": null,
+    "interpreter_function": "interpret_compass",
+    "trigger_actions": [
+      {
+        "condition": "north",
+        "function": "heading_north()",
+        "async": true
+      },
+      {
+        "condition": "south",
+        "function": "heading_south()",
+        "async": true
+      },
+      {
+        "condition": "east",
+        "function": "heading_east()",
+        "async": true
+      },
+      {
+        "condition": "west",
+        "function": "heading_west()",
+        "async": true
+      }
+    ],
     "units": "degrees"
   }
 }
