@@ -1,0 +1,14 @@
+{
+  "humidity_sensor": {
+    "type": "humidity_sensor",
+    "interface": "i2c",
+    "address": "0x40",
+    "humidity_range": {
+      "min": 0,
+      "max": 100
+    },
+    "accuracy": 0.1,
+    "last_humidity_reading": 55.8,
+    "units": "%"
+  }
+}
