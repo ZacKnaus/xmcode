@@ -1,0 +1,43 @@
+{
+  "hotwire_filament": {
+    "type": "hotwire_filament",
+    "max_temperature": 500,
+    "filament_diameter": 1.75,
+    "commands": {
+      "set_temperature": {
+        "function": "hotwire_filament_set_temperature(temperature)",
+        "parameters": {
+          "temperature": {
+            "type": "number",
+            "min": 0,
+            "max": 500
+          }
+        },
+        "async": false,
+        "comments": "Sets the hotwire temperature."
+      },
+      "extrude_filament": {
+        "function": "hotwire_filament_extrude(length)",
+        "parameters": {
+          "length": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "async": true,
+        "comments": "Extrudes the filament."
+      },
+      "retract_filament": {
+        "function": "hotwire_filament_retract(length)",
+        "parameters": {
+          "length": {
+            "type": "number",
+            "min": 0
+          }
+        },
+        "async": true,
+        "comments": "Retracts the filament."
+      }
+    }
+  }
+}
