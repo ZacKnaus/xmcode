@@ -1,0 +1,14 @@
+{
+  "nfc_reader": {
+    "type": "nfc_reader",
+    "interface": "i2c",
+    "address": "0x24",
+    "supported_tags": ["NFC Type 1", "NFC Type 2", "NFC Type 4"],
+    "last_tag_data": {
+      "uid": "ABCDEF01",
+      "type": "NFC Type 2",
+      "data": "Hello, NFC!",
+      "timestamp": "2023-06-08T16:00:00Z"
+    }
+  }
+}
