@@ -1,10 +1,24 @@
 {
+  "alias": "tilt_sensor_1",
   "tilt_sensor": {
     "type": "tilt_sensor",
     "interface": "digital",
     "pin": "D12",
     "tilt_threshold": 30,
-    "last_tilt_state": true,
-    "last_tilt_time": "2023-06-08T13:30:00Z"
+    "last_content": true,
+    "last_triggered": "2023-06-08T13:30:00Z",
+    "interpreter_function": "interpret_tilt",
+    "trigger_actions": [
+      {
+        "condition": "tilted",
+        "function": "tilt_detected()",
+        "async": true
+      },
+      {
+        "condition": "not_tilted",
+        "function": "no_tilt_detected()",
+        "async": true
+      }
+    ]
   }
 }
