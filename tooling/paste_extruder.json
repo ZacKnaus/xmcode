@@ -1,0 +1,86 @@
+{
+  "paste_extruder": {
+    "type": "paste_extruder",
+    "nozzle_size": {
+      "unit": "mm",
+      "min": 0.1,
+      "max": 2.0,
+      "default": 0.5
+    },
+    "max_extrusion_rate": 50,
+    "supported_pastes": [
+      "flux",
+      "solder_paste",
+      "silicone",
+      "adhesive"
+    ],
+    "commands": {
+      "extrude": {
+        "function": "paste_extruder_extrude(length, rate)",
+        "parameters": {
+          "length": {
+            "type": "number",
+            "unit": "mm",
+            "min": 0,
+            "max": 100,
+            "required": true
+          },
+          "rate": {
+            "type": "number",
+            "unit": "mm/s",
+            "min": 0.1,
+            "max": 50,
+            "required": true
+          }
+        },
+        "async": false,
+        "comments": "Extrudes paste by moving the A-axis."
+      },
+      "retract": {
+        "function": "paste_extruder_retract(length, rate)",
+        "parameters": {
+          "length": {
+            "type": "number",
+            "unit": "mm",
+            "min": 0,
+            "max": 100,
+            "required": true
+          },
+          "rate": {
+            "type": "number",
+            "unit": "mm/s",
+            "min": 0.1,
+            "max": 50,
+            "required": true
+          }
+        },
+        "async": false,
+        "comments": "Retracts the plunger to reduce pressure."
+      },
+      "set_nozzle_size": {
+        "function": "paste_extruder_set_nozzle_size(size)",
+        "parameters": {
+          "size": {
+            "type": "number",
+            "unit": "mm",
+            "min": 0.1,
+            "max": 2.0,
+            "required": true
+          }
+        },
+        "async": false,
+        "comments": "Sets the nozzle size; user must manually change the nozzle."
+      },
+      "start_extrusion": {
+        "function": "paste_extruder_start()",
+        "async": false,
+        "comments": "Begins continuous extrusion at the set rate."
+      },
+      "stop_extrusion": {
+        "function": "paste_extruder_stop()",
+        "async": false,
+        "comments": "Stops any ongoing extrusion."
+      }
+    }
+  }
+}
